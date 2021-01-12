@@ -8,4 +8,7 @@
     <delete id="deleteOne">
         delete from `confessionwall` where id=#{id}
     </delete>
+    <select id="selectAll" resultType="com.lushihao.service.bean.ConfessionWall">
+        select * from `confessionwall` order by createTime desc limit 0,10
+    </select>
 </mapper>

@@ -1,10 +1,9 @@
 package com.lushihao.service.bean;
 
 /**
- * 告白墙
+ * 失物招领
  */
-public class ConfessionWall {
-
+public class Lost {
     /**
      * 自增主键
      */
@@ -14,9 +13,13 @@ public class ConfessionWall {
      */
     private String stuNum;
     /**
-     * 标题
+     * 捡到的时间
      */
-    private String title;
+    private String getTime;
+    /**
+     * 地点
+     */
+    private String place;
     /**
      * 详情
      */
@@ -42,12 +45,20 @@ public class ConfessionWall {
         this.stuNum = stuNum;
     }
 
-    public String getTitle() {
-        return title;
+    public String getGetTime() {
+        return getTime;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setGetTime(String getTime) {
+        this.getTime = getTime;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public String getContent() {

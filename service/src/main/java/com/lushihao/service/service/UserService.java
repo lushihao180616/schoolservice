@@ -1,9 +1,10 @@
 package com.lushihao.service.service;
 
-import com.lushihao.service.bean.Result;
+import com.lushihao.service.common.Result;
 import com.lushihao.service.bean.User;
 import com.lushihao.service.dao.UserMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,6 +21,7 @@ public class UserService {
      * @param user
      * @return
      */
+    @Transactional
     public User checkLogin(User user) {
         User selectUser = userMapper.selectOne(user);
         if (selectUser.getPwd().equals(user.getPwd())) {
@@ -35,6 +37,7 @@ public class UserService {
      * @param user
      * @return
      */
+    @Transactional
     public int reg(User user) {
         return userMapper.insertOne(user);
     }
@@ -45,6 +48,7 @@ public class UserService {
      * @param user
      * @return
      */
+    @Transactional
     public User mod(User user) {
         User selectUser = userMapper.selectOne(user);
         if (selectUser.getPwd().equals(user.getOldPwd())) {
@@ -64,6 +68,7 @@ public class UserService {
      * @param user
      * @return
      */
+    @Transactional
     public User modifyInfo(User user) {
         int count = userMapper.updateOne(user);
         if (count > 0) {
@@ -73,14 +78,33 @@ public class UserService {
         }
     }
 
+    /**
+     * 查所有用户
+     *
+     * @return
+     */
+    @Transactional
     public List<User> selectAll() {
         return userMapper.selectAll();
     }
 
+    /**
+     * 查找可修改权限的用户
+     *
+     * @return
+     */
+    @Transactional
     public Result selectManageUser() {
         return Result.success(userMapper.selectAllManage(), "成功");
     }
 
+    /**
+     * 修改用户权限
+     *
+     * @param user
+     * @return
+     */
+    @Transactional
     public Result manageUser(User user) {
         int count = userMapper.manageUser(user);
         if (count > 0) {
@@ -90,6 +114,13 @@ public class UserService {
         }
     }
 
+    /**
+     * 管理员重置密码
+     *
+     * @param user
+     * @return
+     */
+    @Transactional
     public Result resetPwd(User user) {
         user.setPwd(user.getStuNum());
         int count = userMapper.updatePwd(user);

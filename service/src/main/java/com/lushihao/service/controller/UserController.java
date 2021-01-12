@@ -1,6 +1,6 @@
 package com.lushihao.service.controller;
 
-import com.lushihao.service.bean.Result;
+import com.lushihao.service.common.Result;
 import com.lushihao.service.bean.User;
 import com.lushihao.service.service.UserService;
 import org.springframework.stereotype.Controller;

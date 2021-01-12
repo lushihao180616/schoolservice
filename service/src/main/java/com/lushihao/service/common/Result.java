@@ -1,4 +1,4 @@
-package com.lushihao.service.bean;
+package com.lushihao.service.common;
 
 /**
  * 给前台数据格式

@@ -1,10 +1,9 @@
 package com.lushihao.service.bean;
 
 /**
- * 告白墙
+ * 约玩
  */
-public class ConfessionWall {
-
+public class Play {
     /**
      * 自增主键
      */
@@ -14,13 +13,13 @@ public class ConfessionWall {
      */
     private String stuNum;
     /**
-     * 标题
-     */
-    private String title;
-    /**
      * 详情
      */
     private String content;
+    /**
+     * 游戏
+     */
+    private String type;
     /**
      * 创建时间
      */
@@ -42,20 +41,20 @@ public class ConfessionWall {
         this.stuNum = stuNum;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getCreateTime() {
