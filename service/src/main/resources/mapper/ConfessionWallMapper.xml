@@ -2,4 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lushihao.service.dao.ConfessionWallMapper">
+    <insert id="insertOne">
+        insert into `confessionwall` (`stuNum`,`title`,`content`) values(#{stuNum},#{title},#{content})
+    </insert>
+    <delete id="deleteOne">
+        delete from `confessionwall` where id=#{id}
+    </delete>
 </mapper>

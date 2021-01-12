@@ -10,6 +10,10 @@ public class ConfessionWall {
      */
     private int id;
     /**
+     * 学号
+     */
+    private String stuNum;
+    /**
      * 标题
      */
     private String title;
@@ -17,10 +21,6 @@ public class ConfessionWall {
      * 详情
      */
     private String content;
-    /**
-     * 学号
-     */
-    private String stuNum;
 
     public int getId() {
         return id;
@@ -28,6 +28,14 @@ public class ConfessionWall {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getStuNum() {
+        return stuNum;
+    }
+
+    public void setStuNum(String stuNum) {
+        this.stuNum = stuNum;
     }
 
     public String getTitle() {
@@ -44,13 +52,5 @@ public class ConfessionWall {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getStuNum() {
-        return stuNum;
-    }
-
-    public void setStuNum(String stuNum) {
-        this.stuNum = stuNum;
     }
 }
