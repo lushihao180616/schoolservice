@@ -24,6 +24,8 @@ public class PlayController {
      * @param play
      * @return
      */
+    @RequestMapping("insertOne")
+    @ResponseBody
     public Result insertOne(Play play) {
         if (playService.insertOne(play) > 0) {
             return Result.success("成功", "成功");
@@ -38,6 +40,8 @@ public class PlayController {
      * @param play
      * @return
      */
+    @RequestMapping("deleteOne")
+    @ResponseBody
     public Result deleteOne(Play play) {
         if (playService.deleteOne(play) > 0) {
             return Result.success("成功", "成功");

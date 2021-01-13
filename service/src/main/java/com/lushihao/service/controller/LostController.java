@@ -24,6 +24,8 @@ public class LostController {
      * @param lost
      * @return
      */
+    @RequestMapping("insertOne")
+    @ResponseBody
     public Result insertOne(Lost lost) {
         if (lostService.insertOne(lost) > 0) {
             return Result.success("成功", "成功");
@@ -38,6 +40,8 @@ public class LostController {
      * @param lost
      * @return
      */
+    @RequestMapping("deleteOne")
+    @ResponseBody
     public Result deleteOne(Lost lost) {
         if (lostService.deleteOne(lost) > 0) {
             return Result.success("成功", "成功");

@@ -25,6 +25,8 @@ public class ConfessionWallController {
      * @param confessionWall
      * @return
      */
+    @RequestMapping("insertOne")
+    @ResponseBody
     public Result insertOne(ConfessionWall confessionWall) {
         if (confessionWallService.insertOne(confessionWall) > 0) {
             return Result.success("成功", "成功");
@@ -39,6 +41,8 @@ public class ConfessionWallController {
      * @param confessionWall
      * @return
      */
+    @RequestMapping("deleteOne")
+    @ResponseBody
     public Result deleteOne(ConfessionWall confessionWall) {
         if (confessionWallService.deleteOne(confessionWall) > 0) {
             return Result.success("成功", "成功");

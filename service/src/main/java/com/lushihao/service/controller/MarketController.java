@@ -24,6 +24,8 @@ public class MarketController {
      * @param market
      * @return
      */
+    @RequestMapping("insertOne")
+    @ResponseBody
     public Result insertOne(Market market) {
         if (marketService.insertOne(market) > 0) {
             return Result.success("成功", "成功");
@@ -38,6 +40,8 @@ public class MarketController {
      * @param market
      * @return
      */
+    @RequestMapping("deleteOne")
+    @ResponseBody
     public Result deleteOne(Market market) {
         if (marketService.deleteOne(market) > 0) {
             return Result.success("成功", "成功");
