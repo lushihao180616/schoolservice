@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lushihao.service.dao.ConfessionWallMapper">
+<mapper namespace="com.lushihao.service.dao.PlayMapper">
     <insert id="insertOne">
         insert into
-            `confessionwall`
-            (`stuNum`,`title`,`content`,`createTime`)
+            `play`
+            (`stuNum`,`content`,`type`,`playTime`,`createTime`)
         values
-            (#{stuNum},#{title},#{content},#{createTime})
+            (#{stuNum},#{content},#{type},#{playTime},#{createTime})
     </insert>
     <delete id="deleteOne">
         delete from
-            `confessionwall`
+            `play`
         where
             `id`=#{id}
     </delete>
-    <select id="selectAll" resultType="com.lushihao.service.bean.ConfessionWall">
+    <select id="selectAll" resultType="com.lushihao.service.bean.Play">
         select * from
-            `confessionwall`
+            `play`
         order by
             `createTime` desc
         limit 0,10

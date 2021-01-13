@@ -21,6 +21,10 @@ public class Play {
      */
     private String type;
     /**
+     * 游戏时间
+     */
+    private String playTime;
+    /**
      * 创建时间
      */
     private String createTime;
@@ -55,6 +59,14 @@ public class Play {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getPlayTime() {
+        return playTime;
+    }
+
+    public void setPlayTime(String playTime) {
+        this.playTime = playTime;
     }
 
     public String getCreateTime() {
