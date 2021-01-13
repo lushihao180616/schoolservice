@@ -3,13 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lushihao.service.dao.UserMapper">
     <select id="selectOne" resultType="com.lushihao.service.bean.User">
-        select `stuNum`,`name`,`grade`,`className`,`major`,`sex`,`manageFlag` from
+        select `stuNum`,`avatarUrl`,`pwd`,`name`,`grade`,`className`,`major`,`sex`,`manageFlag` from
             `user`
         where
             `stuNum`=#{stuNum}
     </select>
     <select id="selectAllManage" resultType="com.lushihao.service.bean.User">
-        select `stuNum`,`name`,`grade`,`className`,`major`,`sex`,`manageFlag` from
+        select `stuNum`,`avatarUrl`,`name`,`grade`,`className`,`major`,`sex`,`manageFlag` from
             `user`
         where
             `manageFlag`!='2'
@@ -37,6 +37,14 @@
         where
             `stuNum` = #{stuNum};
     </update>
+    <update id="updateAvatar">
+        update
+            `user`
+        set
+            `avatarUrl`=#{avatarUrl}
+        where
+            `stuNum` = #{stuNum};
+    </update>
     <update id="manageUser">
         update
             `user`
@@ -46,7 +54,7 @@
             `stuNum` = #{stuNum};
     </update>
     <select id="selectAll" resultType="com.lushihao.service.bean.User">
-        select `stuNum`,`name`,`grade`,`className`,`major`,`sex`,`manageFlag` from
+        select `stuNum`,`avatarUrl`,`name`,`grade`,`className`,`major`,`sex`,`manageFlag` from
             `user`
     </select>
 </mapper>

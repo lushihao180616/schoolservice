@@ -12,6 +12,6 @@ public interface PlayMapper {
 
     int deleteOne(Play play);
 
-    List<Play> selectAll();
+    List<Play> selectLimit();
 
 }

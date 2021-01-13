@@ -14,6 +14,8 @@ public interface UserMapper {
 
     int updatePwd(User user);
 
+    int updateAvatar(User user);
+
     List<User> selectAll();
 
     List<User> selectAllManage();

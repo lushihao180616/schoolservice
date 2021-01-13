@@ -10,6 +10,10 @@ public class User {
      */
     private String stuNum;
     /**
+     * 头像
+     */
+    private String avatarUrl;
+    /**
      * 姓名
      */
     private String name;
@@ -48,6 +52,14 @@ public class User {
 
     public void setStuNum(String stuNum) {
         this.stuNum = stuNum;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getName() {

@@ -15,7 +15,7 @@
         where
             `id`=#{id}
     </delete>
-    <select id="selectAll" resultType="com.lushihao.service.bean.Play">
+    <select id="selectLimit" resultType="com.lushihao.service.bean.Play">
         select * from
             `play`
         order by

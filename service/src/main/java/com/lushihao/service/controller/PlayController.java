@@ -55,10 +55,10 @@ public class PlayController {
      *
      * @return
      */
-    @RequestMapping("selectAll")
+    @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectAll() {
-        return Result.success(playService.selectAll(), "成功");
+    public Result selectLimit() {
+        return Result.success(playService.selectLimit(), "成功");
     }
 
 }
