@@ -56,10 +56,10 @@ public class ConfessionWallController {
      *
      * @return
      */
-    @RequestMapping("selectAll")
+    @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectAll() {
-        return Result.success(confessionWallService.selectAll(), "成功");
+    public Result selectLimit() {
+        return Result.success(confessionWallService.selectLimit(), "成功");
     }
 
 }

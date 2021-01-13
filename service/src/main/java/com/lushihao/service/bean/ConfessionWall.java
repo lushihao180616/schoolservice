@@ -1,5 +1,7 @@
 package com.lushihao.service.bean;
 
+import com.lushihao.service.common.Image;
+
 /**
  * 告白墙
  */
@@ -21,6 +23,10 @@ public class ConfessionWall {
      * 详情
      */
     private String content;
+    /**
+     * 图片
+     */
+    private Image image;
     /**
      * 创建时间
      */
@@ -58,6 +64,14 @@ public class ConfessionWall {
         this.content = content;
     }
 
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
     public String getCreateTime() {
         return createTime;
     }
@@ -65,4 +79,5 @@ public class ConfessionWall {
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
+
 }

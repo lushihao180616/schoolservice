@@ -15,7 +15,7 @@
         where
             `id`=#{id}
     </delete>
-    <select id="selectAll" resultType="com.lushihao.service.bean.ConfessionWall">
+    <select id="selectLimit" resultType="com.lushihao.service.bean.ConfessionWall">
         select * from
             `confessionwall`
         order by

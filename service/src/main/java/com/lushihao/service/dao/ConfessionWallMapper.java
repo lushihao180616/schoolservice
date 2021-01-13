@@ -12,6 +12,6 @@ public interface ConfessionWallMapper {
 
     int deleteOne(ConfessionWall confessionWall);
 
-    List<ConfessionWall> selectAll();
+    List<ConfessionWall> selectLimit();
 
 }
