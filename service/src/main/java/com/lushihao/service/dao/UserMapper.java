@@ -22,6 +22,6 @@ public interface UserMapper {
 
     int manageUser(User user);
 
-    User selectOne(User user);
 
+    User selectOne(User user);
 }

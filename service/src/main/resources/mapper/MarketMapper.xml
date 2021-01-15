@@ -15,7 +15,7 @@
         where
             `id`=#{id}
     </delete>
-    <select id="selectAll" resultType="com.lushihao.service.bean.Market">
+    <select id="selectLimit" resultType="com.lushihao.service.bean.Market">
         select * from
             `market`
         order by

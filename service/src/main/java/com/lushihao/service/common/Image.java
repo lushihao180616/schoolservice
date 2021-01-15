@@ -14,7 +14,7 @@ public class Image {
      */
     private String src;
     /**
-     * 图片类型
+     * 图片类型(00:表白墙，01:跳蚤市场)
      */
     private String type;
     /**

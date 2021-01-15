@@ -55,10 +55,10 @@ public class MarketController {
      *
      * @return
      */
-    @RequestMapping("selectAll")
+    @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectAll() {
-        return Result.success(marketService.selectAll(), "成功");
+    public Result selectLimit() {
+        return Result.success(marketService.selectLimit(), "成功");
     }
 
 }

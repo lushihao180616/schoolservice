@@ -12,6 +12,6 @@ public interface LostMapper {
 
     int deleteOne(Lost lost);
 
-    List<Lost> selectAll();
+    List<Lost> selectLimit();
 
 }

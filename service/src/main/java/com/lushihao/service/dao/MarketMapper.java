@@ -12,6 +12,6 @@ public interface MarketMapper {
 
     int deleteOne(Market market);
 
-    List<Market> selectAll();
+    List<Market> selectLimit();
 
 }

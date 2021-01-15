@@ -55,10 +55,10 @@ public class LostController {
      *
      * @return
      */
-    @RequestMapping("selectAll")
+    @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectAll() {
-        return Result.success(lostService.selectAll(), "成功");
+    public Result selectLimit() {
+        return Result.success(lostService.selectLimit(), "成功");
     }
 
 }
