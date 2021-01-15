@@ -11,11 +11,65 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 15/01/2021 15:52:33
+ Date: 15/01/2021 17:29:20
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for activityaudio
+-- ----------------------------
+DROP TABLE IF EXISTS `activityaudio`;
+CREATE TABLE `activityaudio`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `src` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
+  `type` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '音频类型',
+  `typeId` int(11) NULL DEFAULT NULL COMMENT '音频对应的类型id',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `activityaudio_type_typeId_index`(`type`, `typeId`) USING BTREE COMMENT '索引 类型 类型id'
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for activitybeautiful
+-- ----------------------------
+DROP TABLE IF EXISTS `activitybeautiful`;
+CREATE TABLE `activitybeautiful`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `stuNum` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '学号',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of activitybeautiful
+-- ----------------------------
+INSERT INTO `activitybeautiful` VALUES (1, '14020109109');
+
+-- ----------------------------
+-- Table structure for activityimage
+-- ----------------------------
+DROP TABLE IF EXISTS `activityimage`;
+CREATE TABLE `activityimage`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `src` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
+  `type` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片类型',
+  `typeId` int(11) NULL DEFAULT NULL COMMENT '图片对应的类型id',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `activityimage_type_typeId_index`(`type`, `typeId`) USING BTREE COMMENT '索引 类型 类型id'
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for activityvideo
+-- ----------------------------
+DROP TABLE IF EXISTS `activityvideo`;
+CREATE TABLE `activityvideo`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `src` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
+  `type` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '视频类型',
+  `typeId` int(11) NULL DEFAULT NULL COMMENT '视频对应的类型id',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `activityvideo_type_typeId_index`(`type`, `typeId`) USING BTREE COMMENT '索引 类型 类型id'
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for confessionwall

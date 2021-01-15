@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lushihao.service.dao.ActivityImageMapper">
+    <insert id="insertOne">
+        insert into
+            `activityimage`
+            (`src`,`type`,`typeId`)
+        values
+            (#{src},#{type},#{typeId})
+    </insert>
+    <delete id="deleteOne">
+        delete from
+            `activityimage`
+        where
+            `id`=#{id}
+    </delete>
+    <select id="selectOne" resultType="com.lushihao.service.activity.ActivityImage">
+        select * from
+            `activityimage`
+        where
+            `type`=#{type} and `typeId`=#{typeId}
+    </select>
+</mapper>

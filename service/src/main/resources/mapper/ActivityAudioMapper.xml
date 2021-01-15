@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lushihao.service.dao.ActivityAudioMapper">
+    <insert id="insertOne">
+        insert into
+            `activityaudio`
+            (`src`,`type`,`typeId`)
+        values
+            (#{src},#{type},#{typeId})
+    </insert>
+    <delete id="deleteOne">
+        delete from
+            `activityaudio`
+        where
+            `id`=#{id}
+    </delete>
+    <select id="selectOne" resultType="com.lushihao.service.activity.ActivityAudio">
+        select * from
+            `activityaudio`
+        where
+            `type`=#{type} and `typeId`=#{typeId}
+    </select>
+</mapper>

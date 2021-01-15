@@ -12,9 +12,9 @@ public class ActivityImage {
     /**
      * 图片地址
      */
-    private String url;
+    private String src;
     /**
-     * 类型（活动-最美：0）
+     * 类型（00：最美）
      */
     private String type;
     /**
@@ -30,12 +30,12 @@ public class ActivityImage {
         this.id = id;
     }
 
-    public String getUrl() {
-        return url;
+    public String getSrc() {
+        return src;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setSrc(String src) {
+        this.src = src;
     }
 
     public String getType() {

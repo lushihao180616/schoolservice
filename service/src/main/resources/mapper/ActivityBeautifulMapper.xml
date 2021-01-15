@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lushihao.service.dao.ActivityBeautifulMapper">
+    <insert id="insertOne">
+        insert into
+            `activityaudio`
+            (`stuNum`)
+        values
+            (#{stuNum})
+    </insert>
+    <delete id="deleteOne">
+        delete from
+            `activityaudio`
+        where
+            `id`=#{id}
+    </delete>
+    <select id="selectOne" resultType="com.lushihao.service.activity.ActivityBeautiful">
+        select * from
+            `activityaudio`
+        where
+            `id`=#{id}
+    </select>
+</mapper>
