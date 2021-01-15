@@ -20,7 +20,7 @@ public class ActivityImage {
     /**
      * 类型的主键
      */
-    private String typeId;
+    private int typeId;
 
     public int getId() {
         return id;
@@ -46,12 +46,11 @@ public class ActivityImage {
         this.type = type;
     }
 
-    public String getTypeId() {
+    public int getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(String typeId) {
+    public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
-
 }

@@ -3,6 +3,8 @@ package com.lushihao.service.dao;
 import com.lushihao.service.activity.ActivityAudio;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface ActivityAudioMapper {
 
@@ -10,6 +12,6 @@ public interface ActivityAudioMapper {
 
     int deleteOne(ActivityAudio activityAudio);
 
-    ActivityAudio selectOne(ActivityAudio activityAudio);
+    List<ActivityAudio> selectMy(ActivityAudio activityAudio);
 
 }

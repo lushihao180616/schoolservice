@@ -3,6 +3,8 @@ package com.lushihao.service.dao;
 import com.lushihao.service.activity.ActivityVideo;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface ActivityVideoMapper {
 
@@ -10,6 +12,6 @@ public interface ActivityVideoMapper {
 
     int deleteOne(ActivityVideo activityVideo);
 
-    ActivityVideo selectOne(ActivityVideo activityVideo);
+    List<ActivityVideo> selectMy(ActivityVideo activityVideo);
 
 }

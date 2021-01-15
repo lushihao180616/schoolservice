@@ -4,21 +4,26 @@
 <mapper namespace="com.lushihao.service.dao.ActivityBeautifulMapper">
     <insert id="insertOne">
         insert into
-            `activityaudio`
+            `activitybeautiful`
             (`stuNum`)
         values
             (#{stuNum})
     </insert>
     <delete id="deleteOne">
         delete from
-            `activityaudio`
+            `activitybeautiful`
         where
             `id`=#{id}
     </delete>
     <select id="selectOne" resultType="com.lushihao.service.activity.ActivityBeautiful">
         select * from
-            `activityaudio`
+            `activitybeautiful`
         where
             `id`=#{id}
+    </select>
+    <select id="selectLimit" resultType="com.lushihao.service.activity.ActivityBeautiful">
+        select * from
+            `activitybeautiful`
+        limit 0,10
     </select>
 </mapper>

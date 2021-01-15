@@ -15,7 +15,7 @@
         where
             `id`=#{id}
     </delete>
-    <select id="selectOne" resultType="com.lushihao.service.activity.ActivityVideo">
+    <select id="selectMy" resultType="com.lushihao.service.activity.ActivityVideo">
         select * from
             `activityvideo`
         where
