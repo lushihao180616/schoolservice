@@ -1,9 +1,6 @@
 package com.lushihao.service.service;
 
-import com.lushihao.service.activity.ActivityAudio;
-import com.lushihao.service.activity.ActivityBeautiful;
-import com.lushihao.service.activity.ActivityImage;
-import com.lushihao.service.activity.ActivityVideo;
+import com.lushihao.service.activity.*;
 import com.lushihao.service.bean.User;
 import com.lushihao.service.dao.*;
 import org.springframework.stereotype.Service;
@@ -26,6 +23,8 @@ public class ActivityBeautifulService {
     private ActivityVideoMapper activityVideoMapper;
     @Resource
     private ActivityAudioMapper activityAudioMapper;
+    @Resource
+    private ActivityBeautifulGreatMapper activityBeautifulGreatMapper;
     @Resource
     private UserMapper userMapper;
 
@@ -68,10 +67,16 @@ public class ActivityBeautifulService {
             activityImage.setTypeId(beautiful.getId());
             List<ActivityImage> activityImageList = activityImageMapper.selectMy(activityImage);
 
+            //点赞
+            ActivityBeautifulGreat activityBeautifulGreat = new ActivityBeautifulGreat();
+            activityBeautifulGreat.setStuNum(beautiful.getStuNum());
+            int count = activityBeautifulGreatMapper.selectOwner(activityBeautifulGreat);
+
             map.put("user", selectUser);
             map.put("audioList", activityAudioList);
             map.put("videoList", activityVideoList);
             map.put("imageList", activityImageList);
+            map.put("count", count);
             result.add(map);
         }
         return result;
