@@ -3,6 +3,7 @@ package com.lushihao.service.service;
 import com.lushihao.service.bean.Market;
 import com.lushihao.service.bean.User;
 import com.lushihao.service.common.Image;
+import com.lushihao.service.common.ModelType;
 import com.lushihao.service.dao.ImageMapper;
 import com.lushihao.service.dao.MarketMapper;
 import com.lushihao.service.dao.UserMapper;
@@ -48,7 +49,7 @@ public class MarketService {
                 map.put("user", userMapper.selectOne(user));
             }
             Image image = new Image();
-            image.setType("01");
+            image.setType(ModelType.MODEL_MARKET);
             image.setTypeId(marketItem.getId());
             map.put("image", imageMapper.selectOne(image));
             result.add(map);
@@ -68,7 +69,7 @@ public class MarketService {
                 map.put("user", userMapper.selectOne(user));
             }
             Image image = new Image();
-            image.setType("01");
+            image.setType(ModelType.MODEL_CONFESSIONWALL);
             image.setTypeId(marketItem.getId());
             map.put("image", imageMapper.selectOne(image));
             result.add(map);

@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 19/01/2021 13:49:43
+ Date: 19/01/2021 17:40:18
 */
 
 SET NAMES utf8mb4;
@@ -168,6 +168,26 @@ CREATE TABLE `market`  (
 -- Records of market
 -- ----------------------------
 INSERT INTO `market` VALUES (1, '14020109109', '方便面', '超便宜的方便面', '2021-01-15 15:37:00');
+
+-- ----------------------------
+-- Table structure for message
+-- ----------------------------
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `stuNum` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '学号',
+  `type` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '类型',
+  `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '消息内容',
+  `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
+  `readFlag` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'N' COMMENT '读取标识（已读：Y  未读：N）',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of message
+-- ----------------------------
+INSERT INTO `message` VALUES (1, '14020109109', '00', '罗程为你的告白墙点赞啦', '2021-01-19 14:57:12', 'N');
+INSERT INTO `message` VALUES (2, '14020109109', '01', '您的商品有了新的评论信息', '2021-01-19 14:57:12', 'N');
 
 -- ----------------------------
 -- Table structure for play

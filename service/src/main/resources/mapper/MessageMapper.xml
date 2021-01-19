@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lushihao.service.dao.MessageMapper">
+    <insert id="insertOne">
+        insert into
+            `message`
+            (`stuNum`,`type`,`content`,`createTime`,`readFlag`)
+        values
+            (#{stuNum},#{type},#{content},#{createTime},'N')
+    </insert>
+    <delete id="deleteOne">
+        delete from
+            `message`
+        where
+            `id`=#{id}
+    </delete>
+    <select id="selectMyLimit" resultType="com.lushihao.service.bean.Message">
+        select * from
+            `message`
+        where
+            `stuNum`=#{stuNum}
+        order by
+            `createTime` desc
+        limit
+            0,10
+    </select>
+</mapper>
