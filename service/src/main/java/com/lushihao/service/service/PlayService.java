@@ -67,4 +67,26 @@ public class PlayService {
         return result;
     }
 
+    /**
+     * 分页查询约玩
+     *
+     * @return
+     */
+    @Transactional
+    public List<Map> selectMyLimit(Play play) {
+        List<Map> result = new ArrayList<>();
+        List<Play> selectPlay = playMapper.selectMyLimit(play);
+        for (Play playItem : selectPlay) {
+            Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(playItem);
+            if (StringUtils.isNotEmpty(playItem.getStuNum())) {
+                User user = new User();
+                user.setStuNum(playItem.getStuNum());
+                map.put("user", userMapper.selectOne(user));
+            }
+            map.put("game", PlayGameType.gameType.get(playItem.getType()));
+            result.add(map);
+        }
+        return result;
+    }
+
 }

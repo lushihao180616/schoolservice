@@ -6,6 +6,7 @@ import com.lushihao.service.common.Result;
 import com.lushihao.service.service.ConfessionWallService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +28,7 @@ public class ConfessionWallController {
      */
     @RequestMapping("insertOne")
     @ResponseBody
-    public Result insertOne(ConfessionWall confessionWall) {
+    public Result insertOne(@RequestBody ConfessionWall confessionWall) {
         if (confessionWallService.insertOne(confessionWall) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -43,7 +44,7 @@ public class ConfessionWallController {
      */
     @RequestMapping("deleteOne")
     @ResponseBody
-    public Result deleteOne(ConfessionWall confessionWall) {
+    public Result deleteOne(@RequestBody ConfessionWall confessionWall) {
         if (confessionWallService.deleteOne(confessionWall) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -60,6 +61,17 @@ public class ConfessionWallController {
     @ResponseBody
     public Result selectLimit() {
         return Result.success(confessionWallService.selectLimit(), "成功");
+    }
+
+    /**
+     * 分页查询表白墙
+     *
+     * @return
+     */
+    @RequestMapping("selectMyLimit")
+    @ResponseBody
+    public Result selectMyLimit(@RequestBody ConfessionWall confessionWall) {
+        return Result.success(confessionWallService.selectMyLimit(confessionWall), "成功");
     }
 
 }

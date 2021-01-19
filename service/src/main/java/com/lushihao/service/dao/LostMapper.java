@@ -14,4 +14,6 @@ public interface LostMapper {
 
     List<Lost> selectLimit();
 
+    List<Lost> selectMyLimit(Lost lost);
+
 }

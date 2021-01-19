@@ -5,6 +5,7 @@ import com.lushihao.service.common.Result;
 import com.lushihao.service.service.LostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +27,7 @@ public class LostController {
      */
     @RequestMapping("insertOne")
     @ResponseBody
-    public Result insertOne(Lost lost) {
+    public Result insertOne(@RequestBody Lost lost) {
         if (lostService.insertOne(lost) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -42,7 +43,7 @@ public class LostController {
      */
     @RequestMapping("deleteOne")
     @ResponseBody
-    public Result deleteOne(Lost lost) {
+    public Result deleteOne(@RequestBody Lost lost) {
         if (lostService.deleteOne(lost) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -59,6 +60,17 @@ public class LostController {
     @ResponseBody
     public Result selectLimit() {
         return Result.success(lostService.selectLimit(), "成功");
+    }
+
+    /**
+     * 分页查询寻物启事
+     *
+     * @return
+     */
+    @RequestMapping("selectMyLimit")
+    @ResponseBody
+    public Result selectMyLimit(@RequestBody Lost lost) {
+        return Result.success(lostService.selectMyLimit(lost), "成功");
     }
 
 }

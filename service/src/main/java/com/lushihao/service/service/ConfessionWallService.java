@@ -61,4 +61,29 @@ public class ConfessionWallService {
         return result;
     }
 
+    /**
+     * 查我发布的表白墙
+     *
+     * @return
+     */
+    @Transactional
+    public List<Map> selectMyLimit(ConfessionWall confessionWall) {
+        List<Map> result = new ArrayList<>();
+        List<ConfessionWall> selectConfession = confessionWallMapper.selectMyLimit(confessionWall);
+        for (ConfessionWall wallItem : selectConfession) {
+            Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(wallItem);
+            if (StringUtils.isNotEmpty(wallItem.getStuNum())) {
+                User user = new User();
+                user.setStuNum(wallItem.getStuNum());
+                map.put("user", userMapper.selectOne(user));
+            }
+            Image image = new Image();
+            image.setType("00");
+            image.setTypeId(wallItem.getId());
+            map.put("image", imageMapper.selectOne(image));
+            result.add(map);
+        }
+        return result;
+    }
+
 }

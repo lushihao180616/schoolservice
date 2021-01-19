@@ -22,8 +22,18 @@
             `id`=#{id}
     </select>
     <select id="selectLimit" resultType="com.lushihao.service.activity.ActivityBeautiful">
-        select * from
-            `activitybeautiful`
+        select
+            beautiful.*,count(great.stunum) greatCount
+        from
+            `activitybeautiful` beautiful
+        left join
+            `activitybeautifulgreat` great
+        on
+            beautiful.stuNum = great.stuNum
+		group by
+		    great.stunum
+		order by
+				greatCount desc
         limit 0,10
     </select>
 </mapper>

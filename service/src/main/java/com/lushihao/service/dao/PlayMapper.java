@@ -1,5 +1,6 @@
 package com.lushihao.service.dao;
 
+import com.lushihao.service.bean.Market;
 import com.lushihao.service.bean.Play;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,5 +14,7 @@ public interface PlayMapper {
     int deleteOne(Play play);
 
     List<Play> selectLimit();
+
+    List<Play> selectMyLimit(Play play);
 
 }

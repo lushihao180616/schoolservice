@@ -56,4 +56,24 @@ public class MarketService {
         return result;
     }
 
+    @Transactional
+    public List<Map> selectMyLimit(Market market) {
+        List<Map> result = new ArrayList<>();
+        List<Market> selectConfession = marketMapper.selectMyLimit(market);
+        for (Market marketItem : selectConfession) {
+            Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(marketItem);
+            if (StringUtils.isNotEmpty(marketItem.getStuNum())) {
+                User user = new User();
+                user.setStuNum(marketItem.getStuNum());
+                map.put("user", userMapper.selectOne(user));
+            }
+            Image image = new Image();
+            image.setType("01");
+            image.setTypeId(marketItem.getId());
+            map.put("image", imageMapper.selectOne(image));
+            result.add(map);
+        }
+        return result;
+    }
+
 }

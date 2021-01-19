@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 16/01/2021 17:51:22
+ Date: 19/01/2021 13:49:43
 */
 
 SET NAMES utf8mb4;
@@ -59,6 +59,7 @@ CREATE TABLE `activitybeautifulgreat`  (
 -- ----------------------------
 -- Records of activitybeautifulgreat
 -- ----------------------------
+INSERT INTO `activitybeautifulgreat` VALUES ('14020109109', '14020109109');
 INSERT INTO `activitybeautifulgreat` VALUES ('14020109109', '14020109110');
 
 -- ----------------------------
@@ -208,6 +209,6 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('14020109109', '卢世豪', '123456', '大四', '14020109', '机械设计制造及其自动化', 0, '2', 'https://thirdwx.qlogo.cn/mmopen/vi_32/CpK8F54ibkpISHuOgIRWExmb0JHLPHpbibZZEJPDTRRDia7vgPhtM5VvVn9GfkSe1rYA47neicRb0znur9xxJZ229Q/132');
-INSERT INTO `user` VALUES ('14020109110', '罗程', '14020109110', '大三', '14020109', '计算机工程学院', 1, '0', 'https://thirdwx.qlogo.cn/mmopen/vi_32/CpK8F54ibkpISHuOgIRWExmb0JHLPHpbibZZEJPDTRRDia7vgPhtM5VvVn9GfkSe1rYA47neicRb0znur9xxJZ229Q/132');
+INSERT INTO `user` VALUES ('14020109110', '罗程', '14020109110', '大三', '14020109', '计算机工程学院', 1, '0', 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3609671807,461735196&fm=26&gp=0.jpg');
 
 SET FOREIGN_KEY_CHECKS = 1;

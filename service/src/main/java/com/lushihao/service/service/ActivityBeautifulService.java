@@ -67,16 +67,11 @@ public class ActivityBeautifulService {
             activityImage.setTypeId(beautiful.getId());
             List<ActivityImage> activityImageList = activityImageMapper.selectMy(activityImage);
 
-            //点赞
-            ActivityBeautifulGreat activityBeautifulGreat = new ActivityBeautifulGreat();
-            activityBeautifulGreat.setStuNum(beautiful.getStuNum());
-            int count = activityBeautifulGreatMapper.selectOwner(activityBeautifulGreat);
-
             map.put("user", selectUser);
             map.put("audioList", activityAudioList);
             map.put("videoList", activityVideoList);
             map.put("imageList", activityImageList);
-            map.put("count", count);
+            map.put("count", beautiful.getGreatCount());
             result.add(map);
         }
         return result;

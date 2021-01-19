@@ -5,6 +5,7 @@ import com.lushihao.service.common.Result;
 import com.lushihao.service.service.MarketService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +27,7 @@ public class MarketController {
      */
     @RequestMapping("insertOne")
     @ResponseBody
-    public Result insertOne(Market market) {
+    public Result insertOne(@RequestBody Market market) {
         if (marketService.insertOne(market) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -42,7 +43,7 @@ public class MarketController {
      */
     @RequestMapping("deleteOne")
     @ResponseBody
-    public Result deleteOne(Market market) {
+    public Result deleteOne(@RequestBody Market market) {
         if (marketService.deleteOne(market) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -59,6 +60,17 @@ public class MarketController {
     @ResponseBody
     public Result selectLimit() {
         return Result.success(marketService.selectLimit(), "成功");
+    }
+
+    /**
+     * 分页查询二手信息
+     *
+     * @return
+     */
+    @RequestMapping("selectMyLimit")
+    @ResponseBody
+    public Result selectMyLimit(@RequestBody Market market) {
+        return Result.success(marketService.selectMyLimit(market), "成功");
     }
 
 }

@@ -16,6 +16,10 @@ public class ActivityBeautiful {
      */
     private String stuNum;
     /**
+     * 获赞数
+     */
+    private int greatCount;
+    /**
      * 图片（9张）
      */
     private List<ActivityImage> activityImageList;
@@ -42,6 +46,14 @@ public class ActivityBeautiful {
 
     public void setStuNum(String stuNum) {
         this.stuNum = stuNum;
+    }
+
+    public int getGreatCount() {
+        return greatCount;
+    }
+
+    public void setGreatCount(int greatCount) {
+        this.greatCount = greatCount;
     }
 
     public List<ActivityImage> getActivityImageList() {

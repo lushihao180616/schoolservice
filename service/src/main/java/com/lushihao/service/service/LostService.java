@@ -48,4 +48,20 @@ public class LostService {
         return result;
     }
 
+    @Transactional
+    public List<Map> selectMyLimit(Lost lost) {
+        List<Map> result = new ArrayList<>();
+        List<Lost> selectPlay = lostMapper.selectMyLimit(lost);
+        for (Lost lostItem : selectPlay) {
+            Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(lostItem);
+            if (StringUtils.isNotEmpty(lostItem.getStuNum())) {
+                User user = new User();
+                user.setStuNum(lostItem.getStuNum());
+                map.put("user", userMapper.selectOne(user));
+            }
+            result.add(map);
+        }
+        return result;
+    }
+
 }

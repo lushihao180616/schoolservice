@@ -14,4 +14,6 @@ public interface ConfessionWallMapper {
 
     List<ConfessionWall> selectLimit();
 
+    List<ConfessionWall> selectMyLimit(ConfessionWall confessionWall);
+
 }

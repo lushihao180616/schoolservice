@@ -5,6 +5,7 @@ import com.lushihao.service.common.Result;
 import com.lushihao.service.service.ActivityBeautifulGreatService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,7 +21,7 @@ public class ActivityBeautifulGreatController {
 
     @RequestMapping("insertOne")
     @ResponseBody
-    public Result insertOne(ActivityBeautifulGreat activityBeautifulGreat) {
+    public Result insertOne(@RequestBody ActivityBeautifulGreat activityBeautifulGreat) {
         if (activityBeautifulGreatService.insertOne(activityBeautifulGreat) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -30,7 +31,7 @@ public class ActivityBeautifulGreatController {
 
     @RequestMapping("deleteOne")
     @ResponseBody
-    public Result deleteOne(ActivityBeautifulGreat activityBeautifulGreat) {
+    public Result deleteOne(@RequestBody ActivityBeautifulGreat activityBeautifulGreat) {
         if (activityBeautifulGreatService.deleteOne(activityBeautifulGreat) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -40,7 +41,7 @@ public class ActivityBeautifulGreatController {
 
     @RequestMapping("selectMy")
     @ResponseBody
-    public Result selectMy(ActivityBeautifulGreat activityBeautifulGreat) {
+    public Result selectMy(@RequestBody ActivityBeautifulGreat activityBeautifulGreat) {
         return Result.success(activityBeautifulGreatService.selectMy(activityBeautifulGreat), "成功");
     }
 }

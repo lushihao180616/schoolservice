@@ -5,6 +5,7 @@ import com.lushihao.service.common.Result;
 import com.lushihao.service.service.PlayService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +27,7 @@ public class PlayController {
      */
     @RequestMapping("insertOne")
     @ResponseBody
-    public Result insertOne(Play play) {
+    public Result insertOne(@RequestBody Play play) {
         if (playService.insertOne(play) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -42,7 +43,7 @@ public class PlayController {
      */
     @RequestMapping("deleteOne")
     @ResponseBody
-    public Result deleteOne(Play play) {
+    public Result deleteOne(@RequestBody Play play) {
         if (playService.deleteOne(play) > 0) {
             return Result.success("成功", "成功");
         } else {
@@ -59,6 +60,17 @@ public class PlayController {
     @ResponseBody
     public Result selectLimit() {
         return Result.success(playService.selectLimit(), "成功");
+    }
+
+    /**
+     * 分页查询约玩
+     *
+     * @return
+     */
+    @RequestMapping("selectMyLimit")
+    @ResponseBody
+    public Result selectMyLimit(@RequestBody Play play) {
+        return Result.success(playService.selectMyLimit(play), "成功");
     }
 
 }

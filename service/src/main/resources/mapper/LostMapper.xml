@@ -23,4 +23,14 @@
         limit
             0,10
     </select>
+    <select id="selectMyLimit" resultType="com.lushihao.service.bean.Lost">
+        select * from
+            `lost`
+        where
+            `stuNum`=#{stuNum}
+        order by
+            `createTime` desc
+        limit
+            0,10
+    </select>
 </mapper>
