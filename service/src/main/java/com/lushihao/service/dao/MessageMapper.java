@@ -1,6 +1,6 @@
 package com.lushihao.service.dao;
 
-import com.lushihao.service.bean.Message;
+import com.lushihao.service.common.Message;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

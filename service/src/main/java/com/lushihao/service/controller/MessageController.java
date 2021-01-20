@@ -1,7 +1,6 @@
 package com.lushihao.service.controller;
 
-import com.lushihao.service.bean.Message;
-import com.lushihao.service.bean.Play;
+import com.lushihao.service.common.Message;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.service.MessageService;
 import org.springframework.stereotype.Controller;

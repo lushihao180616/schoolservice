@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 19/01/2021 17:40:18
+ Date: 20/01/2021 17:14:09
 */
 
 SET NAMES utf8mb4;
@@ -73,7 +73,7 @@ CREATE TABLE `activityimage`  (
   `typeId` int(11) NULL DEFAULT NULL COMMENT '图片对应的类型id',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `activityimage_type_typeId_index`(`type`, `typeId`) USING BTREE COMMENT '索引 类型 类型id'
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of activityimage

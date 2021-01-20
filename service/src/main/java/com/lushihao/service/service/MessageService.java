@@ -1,10 +1,8 @@
 package com.lushihao.service.service;
 
-import com.lushihao.service.bean.Message;
-import com.lushihao.service.bean.Play;
+import com.lushihao.service.common.Message;
 import com.lushihao.service.bean.User;
 import com.lushihao.service.common.ModelType;
-import com.lushihao.service.common.PlayGameType;
 import com.lushihao.service.dao.MessageMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;

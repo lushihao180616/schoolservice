@@ -1,34 +1,34 @@
-package com.lushihao.service.bean;
+package com.lushihao.service.common;
 
 /**
- * 消息通知
+ * 评论
  */
-public class Message {
+public class Comment {
 
     /**
      * 自增主键
      */
     private int id;
     /**
-     * 学号
-     */
-    private String stuNum;
-    /**
      * 类型
      */
     private String type;
     /**
-     * 消息内容
+     * 类型的主键
+     */
+    private int typeId;
+    /**
+     * 评论人
+     */
+    private String stuNum;
+    /**
+     * 评论内容
      */
     private String content;
     /**
      * 创建时间
      */
     private String createTime;
-    /**
-     * 读取标识（已读：Y  未读：N）
-     */
-    private String readFlag;
 
     public int getId() {
         return id;
@@ -38,20 +38,28 @@ public class Message {
         this.id = id;
     }
 
-    public String getStuNum() {
-        return stuNum;
-    }
-
-    public void setStuNum(String stuNum) {
-        this.stuNum = stuNum;
-    }
-
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getStuNum() {
+        return stuNum;
+    }
+
+    public void setStuNum(String stuNum) {
+        this.stuNum = stuNum;
     }
 
     public String getContent() {
@@ -69,13 +77,4 @@ public class Message {
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
-
-    public String getReadFlag() {
-        return readFlag;
-    }
-
-    public void setReadFlag(String readFlag) {
-        this.readFlag = readFlag;
-    }
-
 }

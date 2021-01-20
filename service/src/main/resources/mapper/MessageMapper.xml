@@ -15,7 +15,7 @@
         where
             `id`=#{id}
     </delete>
-    <select id="selectMyLimit" resultType="com.lushihao.service.bean.Message">
+    <select id="selectMyLimit" resultType="com.lushihao.service.common.Message">
         select * from
             `message`
         where
