@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lushihao.service.dao.CommentMapper">
+    <insert id="insertOne">
+        insert into
+            `comment`
+            (`type`,`typeId`,`stuNum`,`content`,`createTime`)
+        values
+            (#{type},#{typeId},#{stuNum},#{content},#{createTime})
+    </insert>
+    <delete id="deleteOne">
+        delete from
+            `comment`
+        where
+            `id`=#{id}
+    </delete>
+    <select id="selectMyLimit" resultType="com.lushihao.service.common.Comment">
+        select * from
+            `comment`
+        where
+            `stuNum`=#{stuNum}
+        order by
+            `createTime` desc
+        limit 0,10
+    </select>
+</mapper>
