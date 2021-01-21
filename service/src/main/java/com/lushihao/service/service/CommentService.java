@@ -1,14 +1,10 @@
 package com.lushihao.service.service;
 
-import com.lushihao.service.bean.ConfessionWall;
 import com.lushihao.service.bean.User;
 import com.lushihao.service.common.Comment;
-import com.lushihao.service.common.Image;
-import com.lushihao.service.common.ModelType;
 import com.lushihao.service.dao.CommentMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
-import com.lushihao.service.util.ImageUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,11 +22,23 @@ public class CommentService {
     @Resource
     private UserMapper userMapper;
 
+    /**
+     * 添加评论
+     *
+     * @param comment
+     * @return
+     */
     @Transactional
     public int insertOne(Comment comment) {
         return commentMapper.insertOne(comment);
     }
 
+    /**
+     * 删除评论
+     *
+     * @param comment
+     * @return
+     */
     @Transactional
     public int deleteOne(Comment comment) {
         return commentMapper.deleteOne(comment);
