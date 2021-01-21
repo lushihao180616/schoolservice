@@ -55,7 +55,7 @@ public class ConfessionWallService {
                 map.put("user", userMapper.selectOne(user));
             }
             Image image = new Image();
-            image.setType("00");
+            image.setType(ModelType.MODEL_CONFESSIONWALL);
             image.setTypeId(wallItem.getId());
             Image selectImage = imageMapper.selectOne(image);
             map.put("imageDivideNumber", ImageUtil.getHeightDivideWidth(selectImage.getSrc()));

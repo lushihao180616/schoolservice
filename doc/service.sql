@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 20/01/2021 17:36:36
+ Date: 21/01/2021 17:50:52
 */
 
 SET NAMES utf8mb4;
@@ -94,6 +94,24 @@ CREATE TABLE `activityvideo`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `activityvideo_type_typeId_index`(`type`, `typeId`) USING BTREE COMMENT '索引 类型 类型id'
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for audio
+-- ----------------------------
+DROP TABLE IF EXISTS `audio`;
+CREATE TABLE `audio`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `src` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '音频地址',
+  `type` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '类型',
+  `typeId` int(11) NULL DEFAULT NULL COMMENT '类型的主键',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of audio
+-- ----------------------------
+INSERT INTO `audio` VALUES (1, 'https://sharefs.yun.kugou.com/202101211103/5585b66f54e52bc79e927f10b9f3d921/KGTX/CLTX001/3dce58e3635e24f3139114c5e0519def.mp3', '03', 1);
+INSERT INTO `audio` VALUES (2, 'http://m701.music.126.net/20210121135616/c1eeb1f26e9910e572b3d925acf4136c/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/4802695304/4042/7be8/6d70/0206f1636fb571cbdd9b9ec58591fc29.mp3', '03', 2);
 
 -- ----------------------------
 -- Table structure for comment
@@ -215,12 +233,13 @@ CREATE TABLE `play`  (
   `playTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏时间',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of play
 -- ----------------------------
 INSERT INTO `play` VALUES (1, '14020109109', '请和我一起打游戏吧！', '0', '2021-01-15 00:00:00', '2021-01-13 20:32:10');
+INSERT INTO `play` VALUES (2, '14020109109', '请和我一起打游戏吧！', '1', '2021-01-15 00:00:00', '2021-01-13 20:32:10');
 
 -- ----------------------------
 -- Table structure for user

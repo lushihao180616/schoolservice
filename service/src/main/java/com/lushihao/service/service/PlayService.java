@@ -2,10 +2,15 @@ package com.lushihao.service.service;
 
 import com.lushihao.service.bean.Play;
 import com.lushihao.service.bean.User;
+import com.lushihao.service.common.Audio;
+import com.lushihao.service.common.Image;
+import com.lushihao.service.common.ModelType;
 import com.lushihao.service.common.PlayGameType;
+import com.lushihao.service.dao.AudioMapper;
 import com.lushihao.service.dao.PlayMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
+import com.lushihao.service.util.ImageUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +27,8 @@ public class PlayService {
     private PlayMapper playMapper;
     @Resource
     private UserMapper userMapper;
+    @Resource
+    private AudioMapper audioMapper;
 
     /**
      * 创建一条约玩
@@ -61,6 +68,11 @@ public class PlayService {
                 user.setStuNum(playItem.getStuNum());
                 map.put("user", userMapper.selectOne(user));
             }
+            Audio audio = new Audio();
+            audio.setType(ModelType.MODEL_PLAY);
+            audio.setTypeId(playItem.getId());
+            Audio selectAudio = audioMapper.selectOne(audio);
+            map.put("audio", selectAudio);
             map.put("game", PlayGameType.gameType.get(playItem.getType()));
             result.add(map);
         }
@@ -83,6 +95,11 @@ public class PlayService {
                 user.setStuNum(playItem.getStuNum());
                 map.put("user", userMapper.selectOne(user));
             }
+            Audio audio = new Audio();
+            audio.setType(ModelType.MODEL_PLAY);
+            audio.setTypeId(playItem.getId());
+            Audio selectAudio = audioMapper.selectOne(audio);
+            map.put("audio", selectAudio);
             map.put("game", PlayGameType.gameType.get(playItem.getType()));
             result.add(map);
         }

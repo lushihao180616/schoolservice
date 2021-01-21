@@ -1,5 +1,7 @@
 package com.lushihao.service.bean;
 
+import com.lushihao.service.common.Audio;
+
 /**
  * 约玩
  */
@@ -16,6 +18,10 @@ public class Play {
      * 详情
      */
     private String content;
+    /**
+     * 音频
+     */
+    private Audio audio;
     /**
      * 游戏
      */
@@ -51,6 +57,14 @@ public class Play {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Audio getAudio() {
+        return audio;
+    }
+
+    public void setAudio(Audio audio) {
+        this.audio = audio;
     }
 
     public String getType() {
