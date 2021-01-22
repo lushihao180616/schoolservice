@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 22/01/2021 15:14:42
+ Date: 22/01/2021 17:08:32
 */
 
 SET NAMES utf8mb4;
@@ -145,6 +145,19 @@ CREATE TABLE `confessionwall`  (
 -- Records of confessionwall
 -- ----------------------------
 INSERT INTO `confessionwall` VALUES (1, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-01-13 10:30:00');
+
+-- ----------------------------
+-- Table structure for express
+-- ----------------------------
+DROP TABLE IF EXISTS `express`;
+CREATE TABLE `express`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `stuNum` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '学号',
+  `place` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地点',
+  `count` int(2) NULL DEFAULT NULL COMMENT '数量',
+  `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for image
