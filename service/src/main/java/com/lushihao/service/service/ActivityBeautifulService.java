@@ -71,7 +71,7 @@ public class ActivityBeautifulService {
             map.put("audioList", activityAudioList);
             map.put("videoList", activityVideoList);
             map.put("imageList", activityImageList);
-            map.put("count", beautiful.getGreatCount());
+            map.put("greatCount", beautiful.getGreatCount());
             result.add(map);
         }
         return result;
