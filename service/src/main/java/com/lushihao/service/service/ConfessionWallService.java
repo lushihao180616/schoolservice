@@ -8,12 +8,14 @@ import com.lushihao.service.dao.ConfessionWallMapper;
 import com.lushihao.service.dao.ImageMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
+import com.lushihao.service.util.DateUtil;
 import com.lushihao.service.util.ImageUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,11 +32,24 @@ public class ConfessionWallService {
 
     @Transactional
     public int insertOne(ConfessionWall confessionWall) {
-        return confessionWallMapper.insertOne(confessionWall);
+        confessionWall.setCreateTime(DateUtil.nowyMdHms());
+        if (confessionWallMapper.insertOne(confessionWall) > 0) {
+            return confessionWall.getId();
+        }
+        return 0;
     }
 
     @Transactional
     public int deleteOne(ConfessionWall confessionWall) {
+        Image image = new Image();
+        image.setType(ModelType.MODEL_CONFESSIONWALL);
+        image.setTypeId(confessionWall.getId());
+        Image selectImage = imageMapper.selectOne(image);
+        imageMapper.deleteOne(image);
+        if(selectImage != null && selectImage.getSrc() != null){
+            File file = new File(selectImage.getSrc());
+            file.delete();
+        }
         return confessionWallMapper.deleteOne(confessionWall);
     }
 
@@ -58,7 +73,9 @@ public class ConfessionWallService {
             image.setType(ModelType.MODEL_CONFESSIONWALL);
             image.setTypeId(wallItem.getId());
             Image selectImage = imageMapper.selectOne(image);
-            map.put("imageDivideNumber", ImageUtil.getHeightDivideWidth(selectImage.getSrc()));
+            if (selectImage != null) {
+                map.put("imageDivideNumber", ImageUtil.getHeightDivideWidth(selectImage.getSrc()));
+            }
             map.put("image", selectImage);
             result.add(map);
         }

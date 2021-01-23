@@ -69,7 +69,7 @@ public class MarketService {
                 map.put("user", userMapper.selectOne(user));
             }
             Image image = new Image();
-            image.setType(ModelType.MODEL_CONFESSIONWALL);
+            image.setType(ModelType.MODEL_MARKET);
             image.setTypeId(marketItem.getId());
             map.put("image", imageMapper.selectOne(image));
             result.add(map);

@@ -13,7 +13,9 @@
         delete from
             `image`
         where
-            `id`=#{id}
+            `type`=#{type}
+        and
+            `typeId`=#{typeId}
     </delete>
     <select id="selectOne" resultType="com.lushihao.service.common.Image">
         select * from

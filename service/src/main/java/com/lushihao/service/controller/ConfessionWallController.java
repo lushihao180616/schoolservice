@@ -2,7 +2,10 @@ package com.lushihao.service.controller;
 
 
 import com.lushihao.service.bean.ConfessionWall;
+import com.lushihao.service.common.Image;
+import com.lushihao.service.common.ModelType;
 import com.lushihao.service.common.Result;
+import com.lushihao.service.dao.ImageMapper;
 import com.lushihao.service.service.ConfessionWallService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.io.File;
 
 @Controller
 @RequestMapping("confession")
@@ -19,6 +23,8 @@ public class ConfessionWallController {
 
     @Resource
     private ConfessionWallService confessionWallService;
+    @Resource
+    private ImageMapper imageMapper;
 
     /**
      * 创建一条表白墙
@@ -29,8 +35,9 @@ public class ConfessionWallController {
     @RequestMapping("insertOne")
     @ResponseBody
     public Result insertOne(@RequestBody ConfessionWall confessionWall) {
-        if (confessionWallService.insertOne(confessionWall) > 0) {
-            return Result.success("成功", "成功");
+        int id = confessionWallService.insertOne(confessionWall);
+        if (id > 0) {
+            return Result.success(id, "成功");
         } else {
             return Result.fail("失败", "失败");
         }

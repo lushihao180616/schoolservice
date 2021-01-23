@@ -9,6 +9,7 @@ import java.net.URL;
 public class ImageUtil {
 
     /**
+     * 获得高宽比
      * @param src
      * @return
      */

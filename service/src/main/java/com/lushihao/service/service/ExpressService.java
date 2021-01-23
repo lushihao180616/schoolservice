@@ -22,16 +22,33 @@ public class ExpressService {
     @Resource
     private UserMapper userMapper;
 
+    /**
+     * 创建一条快递
+     *
+     * @param express
+     * @return
+     */
     @Transactional
     public int insertOne(Express express) {
         return expressMapper.insertOne(express);
     }
 
+    /**
+     * 删除一条快递
+     *
+     * @param express
+     * @return
+     */
     @Transactional
     public int deleteOne(Express express) {
         return expressMapper.deleteOne(express);
     }
 
+    /**
+     * 分页查询快递
+     *
+     * @return
+     */
     @Transactional
     public List<Map> selectMyLimit(Express express) {
         List<Map> result = new ArrayList<>();
