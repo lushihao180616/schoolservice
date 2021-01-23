@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 23/01/2021 15:02:28
+ Date: 23/01/2021 16:59:30
 */
 
 SET NAMES utf8mb4;
@@ -252,7 +252,7 @@ CREATE TABLE `play`  (
   `playTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏时间',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of play
@@ -260,6 +260,9 @@ CREATE TABLE `play`  (
 INSERT INTO `play` VALUES (1, '14020109109', '请和我一起打游戏吧！', '0', '2021-01-15 00:00:00', '2021-01-13 20:32:10');
 INSERT INTO `play` VALUES (2, '14020109110', '请和我一起打游戏吧！', '1', '2021-01-15 00:00:00', '2021-01-13 20:32:10');
 INSERT INTO `play` VALUES (3, '14020109109', '请和我一起打游戏吧！', '0', '2021-01-15 00:00:00', '2021-01-13 20:32:10');
+INSERT INTO `play` VALUES (4, '14020109109', '1', '0', NULL, '2021-01-23 16:57:10');
+INSERT INTO `play` VALUES (5, '14020109109', '1', '0', NULL, '2021-01-23 16:57:54');
+INSERT INTO `play` VALUES (6, '14020109109', '2', '0', NULL, '2021-01-23 16:58:20');
 
 -- ----------------------------
 -- Table structure for user

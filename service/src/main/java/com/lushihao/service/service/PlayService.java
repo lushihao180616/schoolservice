@@ -3,14 +3,13 @@ package com.lushihao.service.service;
 import com.lushihao.service.bean.Play;
 import com.lushihao.service.bean.User;
 import com.lushihao.service.common.Audio;
-import com.lushihao.service.common.Image;
 import com.lushihao.service.common.ModelType;
 import com.lushihao.service.common.PlayGameType;
 import com.lushihao.service.dao.AudioMapper;
 import com.lushihao.service.dao.PlayMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
-import com.lushihao.service.util.ImageUtil;
+import com.lushihao.service.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +37,11 @@ public class PlayService {
      */
     @Transactional
     public int insertOne(Play play) {
-        return playMapper.insertOne(play);
+        play.setCreateTime(DateUtil.nowyMdHms());
+        if (playMapper.insertOne(play) > 0) {
+            return play.getId();
+        }
+        return 0;
     }
 
     /**

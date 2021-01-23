@@ -28,8 +28,9 @@ public class PlayController {
     @RequestMapping("insertOne")
     @ResponseBody
     public Result insertOne(@RequestBody Play play) {
-        if (playService.insertOne(play) > 0) {
-            return Result.success("成功", "成功");
+        int id = playService.insertOne(play);
+        if (id > 0) {
+            return Result.success(id, "成功");
         } else {
             return Result.fail("失败", "失败");
         }

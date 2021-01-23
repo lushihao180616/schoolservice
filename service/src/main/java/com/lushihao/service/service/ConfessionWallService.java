@@ -101,6 +101,10 @@ public class ConfessionWallService {
             Image image = new Image();
             image.setType(ModelType.MODEL_CONFESSIONWALL);
             image.setTypeId(wallItem.getId());
+            Image selectImage = imageMapper.selectOne(image);
+            if (selectImage != null) {
+                map.put("imageDivideNumber", ImageUtil.getHeightDivideWidth(selectImage.getSrc()));
+            }
             map.put("image", imageMapper.selectOne(image));
             result.add(map);
         }

@@ -33,7 +33,7 @@ public class FileController {
     @Resource
     private ConfessionWallService confessionWallService;
 
-    @RequestMapping("upload")
+    @RequestMapping("imageupload")
     @ResponseBody
     public Result doUpload(HttpServletRequest request, HttpServletResponse response,
                            @RequestParam(value = "imagefile", required = false) MultipartFile imagefile) {
