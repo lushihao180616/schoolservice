@@ -5,9 +5,9 @@
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into
             `play`
-            (`stuNum`,`content`,`type`,`playTime`,`createTime`)
+            (`stuNum`,`content`,`type`,`createTime`)
         values
-            (#{stuNum},#{content},#{type},#{playTime},#{createTime})
+            (#{stuNum},#{content},#{type},#{createTime})
     </insert>
     <delete id="deleteOne">
         delete from
