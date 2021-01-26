@@ -5,6 +5,7 @@ import com.lushihao.service.bean.User;
 import com.lushihao.service.dao.LostMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
+import com.lushihao.service.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +25,11 @@ public class LostService {
 
     @Transactional
     public int insertOne(Lost lost) {
-        return lostMapper.insertOne(lost);
+        lost.setCreateTime(DateUtil.nowyMdHms());
+        if (lostMapper.insertOne(lost) > 0) {
+            return lost.getId();
+        }
+        return 0;
     }
 
     @Transactional

@@ -28,8 +28,9 @@ public class LostController {
     @RequestMapping("insertOne")
     @ResponseBody
     public Result insertOne(@RequestBody Lost lost) {
-        if (lostService.insertOne(lost) > 0) {
-            return Result.success("成功", "成功");
+        int id = lostService.insertOne(lost);
+        if (id > 0) {
+            return Result.success(id, "成功");
         } else {
             return Result.fail("失败", "失败");
         }
