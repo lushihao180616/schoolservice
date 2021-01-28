@@ -5,6 +5,7 @@ import com.lushihao.service.bean.User;
 import com.lushihao.service.dao.ExpressMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
+import com.lushihao.service.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +31,7 @@ public class ExpressService {
      */
     @Transactional
     public int insertOne(Express express) {
+        express.setCreateTime(DateUtil.nowyMdHms());
         return expressMapper.insertOne(express);
     }
 
