@@ -2,8 +2,6 @@ package com.lushihao.service.controller;
 
 
 import com.lushihao.service.bean.ConfessionWall;
-import com.lushihao.service.common.Image;
-import com.lushihao.service.common.ModelType;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.dao.ImageMapper;
 import com.lushihao.service.service.ConfessionWallService;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.io.File;
 
 @Controller
 @RequestMapping("confession")

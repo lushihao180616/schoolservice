@@ -45,6 +45,10 @@ public class User {
      * 管理员标识（0：学生  1：导师  2：超级管理员）
      */
     private String manageFlag;
+    /**
+     * 宿舍
+     */
+    private String dormitoryId;
 
     public String getStuNum() {
         return stuNum;
@@ -124,5 +128,13 @@ public class User {
 
     public void setManageFlag(String manageFlag) {
         this.manageFlag = manageFlag;
+    }
+
+    public String getDormitoryId() {
+        return dormitoryId;
+    }
+
+    public void setDormitoryId(String dormitoryId) {
+        this.dormitoryId = dormitoryId;
     }
 }
