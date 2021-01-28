@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +40,15 @@ public class MarketService {
 
     @Transactional
     public int deleteOne(Market market) {
+        Image image = new Image();
+        image.setType(ModelType.MODEL_MARKET);
+        image.setTypeId(market.getId());
+        Image selectImage = imageMapper.selectOne(image);
+        imageMapper.deleteOne(image);
+        if (selectImage != null && selectImage.getSrc() != null) {
+            File file = new File(selectImage.getSrc());
+            file.delete();
+        }
         return marketMapper.deleteOne(market);
     }
 

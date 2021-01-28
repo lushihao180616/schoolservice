@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 28/01/2021 18:51:25
+ Date: 28/01/2021 19:16:36
 */
 
 SET NAMES utf8mb4;
@@ -201,7 +201,6 @@ CREATE TABLE `lost`  (
 -- Records of lost
 -- ----------------------------
 INSERT INTO `lost` VALUES (1, '14020109109', '2021-01-14 18:00:00', '图书馆二楼', '图书馆二楼捡了一个钥匙', '2021-01-15 14:20:00');
-INSERT INTO `lost` VALUES (2, '14020109109', '2021-01-01 00:00:00', '1', '2', '2021-01-26 14:59:29');
 
 -- ----------------------------
 -- Table structure for market

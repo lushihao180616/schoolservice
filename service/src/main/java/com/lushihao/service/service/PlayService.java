@@ -3,6 +3,7 @@ package com.lushihao.service.service;
 import com.lushihao.service.bean.Play;
 import com.lushihao.service.bean.User;
 import com.lushihao.service.common.Audio;
+import com.lushihao.service.common.Image;
 import com.lushihao.service.common.ModelType;
 import com.lushihao.service.common.PlayGameType;
 import com.lushihao.service.dao.AudioMapper;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +54,15 @@ public class PlayService {
      */
     @Transactional
     public int deleteOne(Play play) {
+        Audio audio = new Audio();
+        audio.setType(ModelType.MODEL_PLAY);
+        audio.setTypeId(play.getId());
+        Audio selectAudio = audioMapper.selectOne(audio);
+        audioMapper.deleteOne(audio);
+        if (selectAudio != null && selectAudio.getSrc() != null) {
+            File file = new File(selectAudio.getSrc());
+            file.delete();
+        }
         return playMapper.deleteOne(play);
     }
 

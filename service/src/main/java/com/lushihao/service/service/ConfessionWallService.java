@@ -46,7 +46,7 @@ public class ConfessionWallService {
         image.setTypeId(confessionWall.getId());
         Image selectImage = imageMapper.selectOne(image);
         imageMapper.deleteOne(image);
-        if(selectImage != null && selectImage.getSrc() != null){
+        if (selectImage != null && selectImage.getSrc() != null) {
             File file = new File(selectImage.getSrc());
             file.delete();
         }
