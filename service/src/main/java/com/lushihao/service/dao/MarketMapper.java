@@ -1,6 +1,5 @@
 package com.lushihao.service.dao;
 
-import com.lushihao.service.bean.Lost;
 import com.lushihao.service.bean.Market;
 import org.apache.ibatis.annotations.Mapper;
 

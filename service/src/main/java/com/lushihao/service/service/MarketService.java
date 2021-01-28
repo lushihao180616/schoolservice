@@ -8,6 +8,7 @@ import com.lushihao.service.dao.ImageMapper;
 import com.lushihao.service.dao.MarketMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
+import com.lushihao.service.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +30,11 @@ public class MarketService {
 
     @Transactional
     public int insertOne(Market market) {
-        return marketMapper.insertOne(market);
+        market.setCreateTime(DateUtil.nowyMdHms());
+        if (marketMapper.insertOne(market) > 0) {
+            return market.getId();
+        }
+        return 0;
     }
 
     @Transactional

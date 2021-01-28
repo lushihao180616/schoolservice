@@ -28,8 +28,9 @@ public class MarketController {
     @RequestMapping("insertOne")
     @ResponseBody
     public Result insertOne(@RequestBody Market market) {
-        if (marketService.insertOne(market) > 0) {
-            return Result.success("成功", "成功");
+        int id = marketService.insertOne(market);
+        if (id > 0) {
+            return Result.success(id, "成功");
         } else {
             return Result.fail("失败", "失败");
         }
