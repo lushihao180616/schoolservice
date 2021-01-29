@@ -48,7 +48,7 @@ public class User {
     /**
      * 宿舍
      */
-    private String dormitoryId;
+    private int dormitoryId;
 
     public String getStuNum() {
         return stuNum;
@@ -130,11 +130,11 @@ public class User {
         this.manageFlag = manageFlag;
     }
 
-    public String getDormitoryId() {
+    public int getDormitoryId() {
         return dormitoryId;
     }
 
-    public void setDormitoryId(String dormitoryId) {
+    public void setDormitoryId(int dormitoryId) {
         this.dormitoryId = dormitoryId;
     }
 }
