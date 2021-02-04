@@ -25,6 +25,14 @@
         and
             `typeId`=#{typeId}
     </select>
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(1) from
+            `great`
+        where
+            `type`=#{type}
+        and
+            `typeId`=#{typeId}
+    </select>
     <select id="selectMyLimit" resultType="com.lushihao.service.common.Great">
         select * from
             `great`

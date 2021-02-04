@@ -101,6 +101,7 @@ public class ConfessionWallService {
             if (selectGreat != null) {
                 map.put("clickGreat", true);
             }
+            map.put("greatCount", greatMapper.selectCount(great));
             result.add(map);
         }
         return result;
@@ -138,6 +139,7 @@ public class ConfessionWallService {
             if (selectGreat != null) {
                 map.put("clickGreat", true);
             }
+            map.put("greatCount", greatMapper.selectCount(great));
             result.add(map);
         }
         return result;

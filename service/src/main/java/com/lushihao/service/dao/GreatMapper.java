@@ -14,6 +14,8 @@ public interface GreatMapper {
 
     Great selectOne(Great great);
 
+    int selectCount(Great great);
+
     List<Great> selectMyLimit(Great great);
 
 }
