@@ -2,9 +2,11 @@ package com.lushihao.service.service;
 
 import com.lushihao.service.bean.ConfessionWall;
 import com.lushihao.service.bean.User;
+import com.lushihao.service.common.Great;
 import com.lushihao.service.common.Image;
 import com.lushihao.service.common.ModelType;
 import com.lushihao.service.dao.ConfessionWallMapper;
+import com.lushihao.service.dao.GreatMapper;
 import com.lushihao.service.dao.ImageMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
@@ -29,7 +31,15 @@ public class ConfessionWallService {
     private UserMapper userMapper;
     @Resource
     private ImageMapper imageMapper;
+    @Resource
+    private GreatMapper greatMapper;
 
+    /**
+     * 插入表白墙
+     *
+     * @param confessionWall
+     * @return
+     */
     @Transactional
     public int insertOne(ConfessionWall confessionWall) {
         confessionWall.setCreateTime(DateUtil.nowyMdHms());
@@ -39,6 +49,12 @@ public class ConfessionWallService {
         return 0;
     }
 
+    /**
+     * 删除表白墙
+     *
+     * @param confessionWall
+     * @return
+     */
     @Transactional
     public int deleteOne(ConfessionWall confessionWall) {
         Image image = new Image();
@@ -77,6 +93,14 @@ public class ConfessionWallService {
                 map.put("imageDivideNumber", ImageUtil.getHeightDivideWidth(selectImage.getSrc()));
             }
             map.put("image", selectImage);
+            Great great = new Great();
+            great.setStuNum(wallItem.getStuNum());
+            great.setType(ModelType.MODEL_CONFESSIONWALL);
+            great.setTypeId(wallItem.getId());
+            Great selectGreat = greatMapper.selectOne(great);
+            if (selectGreat != null) {
+                map.put("clickGreat", true);
+            }
             result.add(map);
         }
         return result;
@@ -106,6 +130,14 @@ public class ConfessionWallService {
                 map.put("imageDivideNumber", ImageUtil.getHeightDivideWidth(selectImage.getSrc()));
             }
             map.put("image", imageMapper.selectOne(image));
+            Great great = new Great();
+            great.setStuNum(wallItem.getStuNum());
+            great.setType(ModelType.MODEL_CONFESSIONWALL);
+            great.setTypeId(wallItem.getId());
+            Great selectGreat = greatMapper.selectOne(great);
+            if (selectGreat != null) {
+                map.put("clickGreat", true);
+            }
             result.add(map);
         }
         return result;

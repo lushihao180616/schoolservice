@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost_3306
+ Source Server         : localhost
  Source Server Type    : MySQL
  Source Server Version : 50626
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 01/02/2021 21:28:09
+ Date: 04/02/2021 14:21:04
 */
 
 SET NAMES utf8mb4;
@@ -180,6 +180,19 @@ CREATE TABLE `express`  (
 -- Records of express
 -- ----------------------------
 INSERT INTO `express` VALUES (1, '14020109109', '莹华里12号楼', 2, '2021-01-23 12:23:42');
+
+-- ----------------------------
+-- Table structure for great
+-- ----------------------------
+DROP TABLE IF EXISTS `great`;
+CREATE TABLE `great`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `type` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '类型',
+  `typeId` int(11) NULL DEFAULT NULL COMMENT '类型的主键',
+  `stuNum` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '点赞人',
+  `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for image
