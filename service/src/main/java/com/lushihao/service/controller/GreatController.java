@@ -29,11 +29,8 @@ public class GreatController {
     @RequestMapping("insertAll")
     @ResponseBody
     public Result insertAll(@RequestBody List<Great> greatList) {
-        if (greatService.insertAll(greatList) > 0) {
-            return Result.success("成功", "成功");
-        } else {
-            return Result.fail("失败", "失败");
-        }
+        greatService.insertAll(greatList);
+        return Result.success("成功", "成功");
     }
 
     /**

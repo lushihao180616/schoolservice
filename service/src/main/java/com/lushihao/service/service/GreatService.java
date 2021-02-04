@@ -30,18 +30,16 @@ public class GreatService {
      * @return
      */
     @Transactional
-    public int insertAll(List<Great> greatList) {
-        int count = 0;
+    public void insertAll(List<Great> greatList) {
         for (Great great : greatList) {
             great.setCreateTime(DateUtil.nowyMdHms());
             Great selectGreat = greatMapper.selectOne(great);
             if (selectGreat != null) {
-                count += greatMapper.deleteOne(selectGreat);
+                greatMapper.deleteOne(selectGreat);
             } else {
-                count += greatMapper.insertOne(great);
+                greatMapper.insertOne(great);
             }
         }
-        return count;
     }
 
     /**
