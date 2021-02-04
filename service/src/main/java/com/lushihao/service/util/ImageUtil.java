@@ -17,8 +17,6 @@ public class ImageUtil {
         try {
             InputStream is = new URL(src).openStream();
             BufferedImage sourceImg = ImageIO.read(is);
-            System.out.println(sourceImg.getWidth());
-            System.out.println();
             return new BigDecimal(sourceImg.getHeight()).divide(new BigDecimal(sourceImg.getHeight())).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         } catch (Exception e) {
             return 0;
