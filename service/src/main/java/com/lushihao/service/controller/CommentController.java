@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("comment")
@@ -28,8 +30,9 @@ public class CommentController {
     @RequestMapping("insertOne")
     @ResponseBody
     public Result insertOne(@RequestBody Comment comment) {
-        if (commentService.insertOne(comment) > 0) {
-            return Result.success("成功", "成功");
+        List<Map> list = commentService.insertOne(comment);
+        if (list != null) {
+            return Result.success(list, "成功");
         } else {
             return Result.fail("失败", "失败");
         }
@@ -61,5 +64,17 @@ public class CommentController {
     @ResponseBody
     public Result selectMyLimit(@RequestBody Comment comment) {
         return Result.success(commentService.selectMyLimit(comment), "成功");
+    }
+
+    /**
+     * 查某条的评论
+     *
+     * @param comment
+     * @return
+     */
+    @RequestMapping("selectTypeLimit")
+    @ResponseBody
+    public Result selectTypeLimit(@RequestBody Comment comment) {
+        return Result.success(commentService.selectTypeLimit(comment), "成功");
     }
 }

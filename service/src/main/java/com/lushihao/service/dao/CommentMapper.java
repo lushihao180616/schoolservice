@@ -14,4 +14,8 @@ public interface CommentMapper {
 
     List<Comment> selectMyLimit(Comment comment);
 
+    List<Comment> selectTypeLimit(Comment comment);
+
+    int selectCount(Comment comment);
+
 }

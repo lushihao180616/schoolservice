@@ -2,13 +2,11 @@ package com.lushihao.service.service;
 
 import com.lushihao.service.bean.ConfessionWall;
 import com.lushihao.service.bean.User;
+import com.lushihao.service.common.Comment;
 import com.lushihao.service.common.Great;
 import com.lushihao.service.common.Image;
 import com.lushihao.service.common.ModelType;
-import com.lushihao.service.dao.ConfessionWallMapper;
-import com.lushihao.service.dao.GreatMapper;
-import com.lushihao.service.dao.ImageMapper;
-import com.lushihao.service.dao.UserMapper;
+import com.lushihao.service.dao.*;
 import com.lushihao.service.util.BeanMapUtil;
 import com.lushihao.service.util.DateUtil;
 import com.lushihao.service.util.ImageUtil;
@@ -33,6 +31,8 @@ public class ConfessionWallService {
     private ImageMapper imageMapper;
     @Resource
     private GreatMapper greatMapper;
+    @Resource
+    private CommentMapper commentMapper;
 
     /**
      * 插入表白墙
@@ -102,6 +102,10 @@ public class ConfessionWallService {
                 map.put("clickGreat", true);
             }
             map.put("greatCount", greatMapper.selectCount(great));
+            Comment comment = new Comment();
+            comment.setType(ModelType.MODEL_CONFESSIONWALL);
+            comment.setTypeId(wallItem.getId());
+            map.put("commentCount", commentMapper.selectCount(comment));
             result.add(map);
         }
         return result;

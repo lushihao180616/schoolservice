@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : localhost_3306
  Source Server Type    : MySQL
  Source Server Version : 50626
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 04/02/2021 14:21:04
+ Date: 07/02/2021 22:52:49
 */
 
 SET NAMES utf8mb4;
@@ -126,7 +126,15 @@ CREATE TABLE `comment`  (
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '评论内容',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+INSERT INTO `comment` VALUES (1, '00', 1, '14020109109', 'ainidfafsdfsdfsdfsdfsdfsdfsdfafasfgsdgdsgaetaewrdfsdfewfd', '2021-02-07 21:24:48');
+INSERT INTO `comment` VALUES (2, '00', 1, '14020109109', 'aini', '2021-02-07 21:24:49');
+INSERT INTO `comment` VALUES (5, '00', 1, '14020109109', '1111', '2021-02-07 22:41:14');
+INSERT INTO `comment` VALUES (6, '00', 1, '14020109109', '123456', '2021-02-07 22:47:36');
 
 -- ----------------------------
 -- Table structure for confessionwall
@@ -144,7 +152,7 @@ CREATE TABLE `confessionwall`  (
 -- ----------------------------
 -- Records of confessionwall
 -- ----------------------------
-INSERT INTO `confessionwall` VALUES (1, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-01-13 10:30:00');
+INSERT INTO `confessionwall` VALUES (1, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-01-13 10:30:00');
 
 -- ----------------------------
 -- Table structure for dormitory
@@ -192,7 +200,12 @@ CREATE TABLE `great`  (
   `stuNum` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '点赞人',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of great
+-- ----------------------------
+INSERT INTO `great` VALUES (1, '00', 1, '14020109109', '2021-02-07 21:24:48');
 
 -- ----------------------------
 -- Table structure for image

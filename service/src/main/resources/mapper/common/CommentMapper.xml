@@ -24,4 +24,23 @@
             `createTime` desc
         limit 0,10
     </select>
+    <select id="selectTypeLimit" resultType="com.lushihao.service.common.Comment">
+        select * from
+            `comment`
+        where
+            `type`=#{type}
+        and
+            `typeId`=#{typeId}
+        order by
+            `createTime` desc
+        limit 0,10
+    </select>
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(1) from
+            `comment`
+        where
+            `type`=#{type}
+        and
+            `typeId`=#{typeId}
+    </select>
 </mapper>
