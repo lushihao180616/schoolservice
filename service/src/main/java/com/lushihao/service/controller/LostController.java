@@ -59,8 +59,8 @@ public class LostController {
      */
     @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectLimit() {
-        return Result.success(lostService.selectLimit(), "成功");
+    public Result selectLimit(@RequestBody String stuNum) {
+        return Result.success(lostService.selectLimit(stuNum), "成功");
     }
 
     /**

@@ -2,13 +2,8 @@ package com.lushihao.service.service;
 
 import com.lushihao.service.bean.Play;
 import com.lushihao.service.bean.User;
-import com.lushihao.service.common.Audio;
-import com.lushihao.service.common.Image;
-import com.lushihao.service.common.ModelType;
-import com.lushihao.service.common.PlayGameType;
-import com.lushihao.service.dao.AudioMapper;
-import com.lushihao.service.dao.PlayMapper;
-import com.lushihao.service.dao.UserMapper;
+import com.lushihao.service.common.*;
+import com.lushihao.service.dao.*;
 import com.lushihao.service.util.BeanMapUtil;
 import com.lushihao.service.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -30,6 +25,10 @@ public class PlayService {
     private UserMapper userMapper;
     @Resource
     private AudioMapper audioMapper;
+    @Resource
+    private GreatMapper greatMapper;
+    @Resource
+    private CommentMapper commentMapper;
 
     /**
      * 创建一条约玩
@@ -72,7 +71,7 @@ public class PlayService {
      * @return
      */
     @Transactional
-    public List<Map> selectLimit() {
+    public List<Map> selectLimit(String stuNum) {
         List<Map> result = new ArrayList<>();
         List<Play> selectPlay = playMapper.selectLimit();
         for (Play playItem : selectPlay) {
@@ -88,6 +87,19 @@ public class PlayService {
             Audio selectAudio = audioMapper.selectOne(audio);
             map.put("audio", selectAudio);
             map.put("game", PlayGameType.gameType.get(playItem.getType()));
+            Great great = new Great();
+            great.setStuNum(stuNum);
+            great.setType(ModelType.MODEL_PLAY);
+            great.setTypeId(playItem.getId());
+            Great selectGreat = greatMapper.selectOne(great);
+            if (selectGreat != null) {
+                map.put("clickGreat", true);
+            }
+            map.put("greatCount", greatMapper.selectCount(great));
+            Comment comment = new Comment();
+            comment.setType(ModelType.MODEL_PLAY);
+            comment.setTypeId(playItem.getId());
+            map.put("commentCount", commentMapper.selectCount(comment));
             result.add(map);
         }
         return result;

@@ -59,8 +59,8 @@ public class MarketController {
      */
     @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectLimit() {
-        return Result.success(marketService.selectLimit(), "成功");
+    public Result selectLimit(@RequestBody String stuNum) {
+        return Result.success(marketService.selectLimit(stuNum), "成功");
     }
 
     /**

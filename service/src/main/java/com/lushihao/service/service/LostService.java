@@ -2,6 +2,11 @@ package com.lushihao.service.service;
 
 import com.lushihao.service.bean.Lost;
 import com.lushihao.service.bean.User;
+import com.lushihao.service.common.Comment;
+import com.lushihao.service.common.Great;
+import com.lushihao.service.common.ModelType;
+import com.lushihao.service.dao.CommentMapper;
+import com.lushihao.service.dao.GreatMapper;
 import com.lushihao.service.dao.LostMapper;
 import com.lushihao.service.dao.UserMapper;
 import com.lushihao.service.util.BeanMapUtil;
@@ -22,6 +27,10 @@ public class LostService {
     private LostMapper lostMapper;
     @Resource
     private UserMapper userMapper;
+    @Resource
+    private GreatMapper greatMapper;
+    @Resource
+    private CommentMapper commentMapper;
 
     @Transactional
     public int insertOne(Lost lost) {
@@ -38,7 +47,7 @@ public class LostService {
     }
 
     @Transactional
-    public List<Map> selectLimit() {
+    public List<Map> selectLimit(String stuNum) {
         List<Map> result = new ArrayList<>();
         List<Lost> selectPlay = lostMapper.selectLimit();
         for (Lost lostItem : selectPlay) {
@@ -48,6 +57,19 @@ public class LostService {
                 user.setStuNum(lostItem.getStuNum());
                 map.put("user", userMapper.selectOne(user));
             }
+            Great great = new Great();
+            great.setStuNum(stuNum);
+            great.setType(ModelType.MODEL_LOST);
+            great.setTypeId(lostItem.getId());
+            Great selectGreat = greatMapper.selectOne(great);
+            if (selectGreat != null) {
+                map.put("clickGreat", true);
+            }
+            map.put("greatCount", greatMapper.selectCount(great));
+            Comment comment = new Comment();
+            comment.setType(ModelType.MODEL_LOST);
+            comment.setTypeId(lostItem.getId());
+            map.put("commentCount", commentMapper.selectCount(comment));
             result.add(map);
         }
         return result;

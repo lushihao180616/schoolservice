@@ -2,11 +2,11 @@ package com.lushihao.service.service;
 
 import com.lushihao.service.bean.Market;
 import com.lushihao.service.bean.User;
+import com.lushihao.service.common.Comment;
+import com.lushihao.service.common.Great;
 import com.lushihao.service.common.Image;
 import com.lushihao.service.common.ModelType;
-import com.lushihao.service.dao.ImageMapper;
-import com.lushihao.service.dao.MarketMapper;
-import com.lushihao.service.dao.UserMapper;
+import com.lushihao.service.dao.*;
 import com.lushihao.service.util.BeanMapUtil;
 import com.lushihao.service.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -28,6 +28,10 @@ public class MarketService {
     private UserMapper userMapper;
     @Resource
     private ImageMapper imageMapper;
+    @Resource
+    private GreatMapper greatMapper;
+    @Resource
+    private CommentMapper commentMapper;
 
     @Transactional
     public int insertOne(Market market) {
@@ -53,7 +57,7 @@ public class MarketService {
     }
 
     @Transactional
-    public List<Map> selectLimit() {
+    public List<Map> selectLimit(String stuNum) {
         List<Map> result = new ArrayList<>();
         List<Market> selectConfession = marketMapper.selectLimit();
         for (Market marketItem : selectConfession) {
@@ -67,6 +71,19 @@ public class MarketService {
             image.setType(ModelType.MODEL_MARKET);
             image.setTypeId(marketItem.getId());
             map.put("image", imageMapper.selectOne(image));
+            Great great = new Great();
+            great.setStuNum(stuNum);
+            great.setType(ModelType.MODEL_MARKET);
+            great.setTypeId(marketItem.getId());
+            Great selectGreat = greatMapper.selectOne(great);
+            if (selectGreat != null) {
+                map.put("clickGreat", true);
+            }
+            map.put("greatCount", greatMapper.selectCount(great));
+            Comment comment = new Comment();
+            comment.setType(ModelType.MODEL_MARKET);
+            comment.setTypeId(marketItem.getId());
+            map.put("commentCount", commentMapper.selectCount(comment));
             result.add(map);
         }
         return result;

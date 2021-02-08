@@ -75,7 +75,7 @@ public class ConfessionWallService {
      * @return
      */
     @Transactional
-    public List<Map> selectLimit() {
+    public List<Map> selectLimit(String stuNum) {
         List<Map> result = new ArrayList<>();
         List<ConfessionWall> selectConfession = confessionWallMapper.selectLimit();
         for (ConfessionWall wallItem : selectConfession) {
@@ -94,7 +94,7 @@ public class ConfessionWallService {
             }
             map.put("image", selectImage);
             Great great = new Great();
-            great.setStuNum(wallItem.getStuNum());
+            great.setStuNum(stuNum);
             great.setType(ModelType.MODEL_CONFESSIONWALL);
             great.setTypeId(wallItem.getId());
             Great selectGreat = greatMapper.selectOne(great);

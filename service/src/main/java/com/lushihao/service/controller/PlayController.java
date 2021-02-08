@@ -59,8 +59,8 @@ public class PlayController {
      */
     @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectLimit() {
-        return Result.success(playService.selectLimit(), "成功");
+    public Result selectLimit(@RequestBody String stuNum) {
+        return Result.success(playService.selectLimit(stuNum), "成功");
     }
 
     /**
