@@ -1,6 +1,6 @@
 package com.lushihao.service.controller;
 
-
+import com.alibaba.fastjson.JSONObject;
 import com.lushihao.service.bean.ConfessionWall;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.dao.ImageMapper;
@@ -63,8 +63,9 @@ public class ConfessionWallController {
      */
     @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectLimit(@RequestBody String stuNum) {
-        return Result.success(confessionWallService.selectLimit(stuNum), "成功");
+    public Result selectLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(confessionWallService.selectLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
     /**

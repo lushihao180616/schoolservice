@@ -75,9 +75,9 @@ public class ConfessionWallService {
      * @return
      */
     @Transactional
-    public List<Map> selectLimit(String stuNum) {
+    public List<Map> selectLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<ConfessionWall> selectConfession = confessionWallMapper.selectLimit();
+        List<ConfessionWall> selectConfession = confessionWallMapper.selectLimit(id);
         for (ConfessionWall wallItem : selectConfession) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(wallItem);
             if (StringUtils.isNotEmpty(wallItem.getStuNum())) {

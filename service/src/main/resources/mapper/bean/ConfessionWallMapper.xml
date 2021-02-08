@@ -18,9 +18,13 @@
     <select id="selectLimit" resultType="com.lushihao.service.bean.ConfessionWall">
         select * from
             `confessionwall`
+        <if test="id != 0">
+        where
+            `id` &lt; #{id}
+        </if>
         order by
             `createTime` desc
-        limit 0,10
+        limit 0,5
     </select>
     <select id="selectMyLimit" resultType="com.lushihao.service.bean.ConfessionWall">
         select * from

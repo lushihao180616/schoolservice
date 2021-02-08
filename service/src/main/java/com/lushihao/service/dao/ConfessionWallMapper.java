@@ -2,6 +2,7 @@ package com.lushihao.service.dao;
 
 import com.lushihao.service.bean.ConfessionWall;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface ConfessionWallMapper {
 
     int deleteOne(ConfessionWall confessionWall);
 
-    List<ConfessionWall> selectLimit();
+    List<ConfessionWall> selectLimit(@Param("id") int id);
 
     List<ConfessionWall> selectMyLimit(ConfessionWall confessionWall);
 
