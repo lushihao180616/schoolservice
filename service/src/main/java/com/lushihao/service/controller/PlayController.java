@@ -1,5 +1,6 @@
 package com.lushihao.service.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lushihao.service.bean.Play;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.service.PlayService;
@@ -59,8 +60,9 @@ public class PlayController {
      */
     @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectLimit(@RequestBody String stuNum) {
-        return Result.success(playService.selectLimit(stuNum), "成功");
+    public Result selectLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(playService.selectLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
     /**

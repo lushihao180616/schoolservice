@@ -18,9 +18,13 @@
     <select id="selectLimit" resultType="com.lushihao.service.bean.Play">
         select * from
             `play`
+        <if test="id != 0">
+        where
+            `id` &lt; #{id}
+        </if>
         order by
             `createTime` desc
-        limit 0,10
+        limit 0,2
     </select>
     <select id="selectMyLimit" resultType="com.lushihao.service.bean.Play">
         select * from

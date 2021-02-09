@@ -71,9 +71,9 @@ public class PlayService {
      * @return
      */
     @Transactional
-    public List<Map> selectLimit(String stuNum) {
+    public List<Map> selectLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<Play> selectPlay = playMapper.selectLimit();
+        List<Play> selectPlay = playMapper.selectLimit(id);
         for (Play playItem : selectPlay) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(playItem);
             if (StringUtils.isNotEmpty(playItem.getStuNum())) {
