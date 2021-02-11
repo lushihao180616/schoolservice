@@ -1,5 +1,6 @@
 package com.lushihao.service.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lushihao.service.bean.Market;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.service.MarketService;
@@ -59,8 +60,9 @@ public class MarketController {
      */
     @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectLimit(@RequestBody String stuNum) {
-        return Result.success(marketService.selectLimit(stuNum), "成功");
+    public Result selectLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(marketService.selectLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
     /**

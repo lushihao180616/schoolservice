@@ -24,7 +24,7 @@
         </if>
         order by
             `createTime` desc
-        limit 0,2
+        limit 0,10
     </select>
     <select id="selectMyLimit" resultType="com.lushihao.service.bean.Play">
         select * from

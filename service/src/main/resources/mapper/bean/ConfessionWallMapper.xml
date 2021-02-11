@@ -24,7 +24,7 @@
         </if>
         order by
             `createTime` desc
-        limit 0,5
+        limit 0,10
     </select>
     <select id="selectMyLimit" resultType="com.lushihao.service.bean.ConfessionWall">
         select * from

@@ -2,6 +2,7 @@ package com.lushihao.service.dao;
 
 import com.lushihao.service.bean.Market;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface MarketMapper {
 
     int deleteOne(Market market);
 
-    List<Market> selectLimit();
+    List<Market> selectLimit(@Param("id") int id);
 
     List<Market> selectMyLimit(Market market);
 

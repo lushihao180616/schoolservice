@@ -57,9 +57,9 @@ public class MarketService {
     }
 
     @Transactional
-    public List<Map> selectLimit(String stuNum) {
+    public List<Map> selectLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<Market> selectConfession = marketMapper.selectLimit();
+        List<Market> selectConfession = marketMapper.selectLimit(id);
         for (Market marketItem : selectConfession) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(marketItem);
             if (StringUtils.isNotEmpty(marketItem.getStuNum())) {
