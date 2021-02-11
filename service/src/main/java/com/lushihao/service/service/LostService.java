@@ -47,9 +47,9 @@ public class LostService {
     }
 
     @Transactional
-    public List<Map> selectLimit(String stuNum) {
+    public List<Map> selectLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<Lost> selectPlay = lostMapper.selectLimit();
+        List<Lost> selectPlay = lostMapper.selectLimit(id);
         for (Lost lostItem : selectPlay) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(lostItem);
             if (StringUtils.isNotEmpty(lostItem.getStuNum())) {

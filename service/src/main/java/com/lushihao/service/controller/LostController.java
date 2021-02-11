@@ -1,5 +1,6 @@
 package com.lushihao.service.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lushihao.service.bean.Lost;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.service.LostService;
@@ -59,8 +60,9 @@ public class LostController {
      */
     @RequestMapping("selectLimit")
     @ResponseBody
-    public Result selectLimit(@RequestBody String stuNum) {
-        return Result.success(lostService.selectLimit(stuNum), "成功");
+    public Result selectLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(lostService.selectLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
     /**
