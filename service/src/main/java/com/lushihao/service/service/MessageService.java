@@ -29,9 +29,9 @@ public class MessageService {
      * @return
      */
     @Transactional
-    public List<Map> selectMyLimit(Message message) {
+    public List<Map> selectMyLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<Message> selectMessage = messageMapper.selectMyLimit(message);
+        List<Message> selectMessage = messageMapper.selectMyLimit(stuNum, id);
         for (Message messageItem : selectMessage) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(messageItem);
             if (StringUtils.isNotEmpty(messageItem.getStuNum())) {

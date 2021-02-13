@@ -1,5 +1,6 @@
 package com.lushihao.service.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lushihao.service.common.Message;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.service.MessageService;
@@ -26,8 +27,9 @@ public class MessageController {
      */
     @RequestMapping("selectMyLimit")
     @ResponseBody
-    public Result selectMyLimit(@RequestBody Message message) {
-        return Result.success(messageService.selectMyLimit(message), "成功");
+    public Result selectMyLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(messageService.selectMyLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
 }

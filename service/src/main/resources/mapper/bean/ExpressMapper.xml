@@ -20,9 +20,13 @@
             `express`
         where
             `stuNum`=#{stuNum}
+        <if test="id != 0">
+            and
+            `id` &lt; #{id}
+        </if>
         order by
             `createTime` desc
         limit
-            0,10
+            0,2
     </select>
 </mapper>

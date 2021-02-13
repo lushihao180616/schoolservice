@@ -1,5 +1,6 @@
 package com.lushihao.service.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lushihao.service.bean.Express;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.service.ExpressService;
@@ -58,8 +59,9 @@ public class ExpressController {
      */
     @RequestMapping("selectMyLimit")
     @ResponseBody
-    public Result selectMyLimit(@RequestBody Express express) {
-        return Result.success(expressService.selectMyLimit(express), "成功");
+    public Result selectMyLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(expressService.selectMyLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
 }

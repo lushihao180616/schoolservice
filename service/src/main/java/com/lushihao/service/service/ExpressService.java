@@ -52,9 +52,9 @@ public class ExpressService {
      * @return
      */
     @Transactional
-    public List<Map> selectMyLimit(Express express) {
+    public List<Map> selectMyLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<Express> selectExpress = expressMapper.selectMyLimit(express);
+        List<Express> selectExpress = expressMapper.selectMyLimit(stuNum, id);
         for (Express expressItem : selectExpress) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(expressItem);
             if (StringUtils.isNotEmpty(expressItem.getStuNum())) {
