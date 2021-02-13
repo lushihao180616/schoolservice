@@ -75,8 +75,9 @@ public class ConfessionWallController {
      */
     @RequestMapping("selectMyLimit")
     @ResponseBody
-    public Result selectMyLimit(@RequestBody ConfessionWall confessionWall) {
-        return Result.success(confessionWallService.selectMyLimit(confessionWall), "成功");
+    public Result selectMyLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(confessionWallService.selectMyLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
 }

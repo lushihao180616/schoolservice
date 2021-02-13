@@ -72,8 +72,9 @@ public class LostController {
      */
     @RequestMapping("selectMyLimit")
     @ResponseBody
-    public Result selectMyLimit(@RequestBody Lost lost) {
-        return Result.success(lostService.selectMyLimit(lost), "成功");
+    public Result selectMyLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(lostService.selectMyLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
 }

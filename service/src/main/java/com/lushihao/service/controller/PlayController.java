@@ -72,8 +72,9 @@ public class PlayController {
      */
     @RequestMapping("selectMyLimit")
     @ResponseBody
-    public Result selectMyLimit(@RequestBody Play play) {
-        return Result.success(playService.selectMyLimit(play), "成功");
+    public Result selectMyLimit(@RequestBody String data) {
+        JSONObject dataJson = JSONObject.parseObject(data);
+        return Result.success(playService.selectMyLimit(dataJson.getString("stuNum"), dataJson.getInteger("id")), "成功");
     }
 
 }

@@ -32,6 +32,10 @@
             `lost`
         where
             `stuNum`=#{stuNum}
+        <if test="id != 0">
+        and
+            `id` &lt; #{id}
+        </if>
         order by
             `createTime` desc
         limit

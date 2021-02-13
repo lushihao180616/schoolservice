@@ -15,6 +15,6 @@ public interface ConfessionWallMapper {
 
     List<ConfessionWall> selectLimit(@Param("id") int id);
 
-    List<ConfessionWall> selectMyLimit(ConfessionWall confessionWall);
+    List<ConfessionWall> selectMyLimit(@Param("stuNum") String stuNum, @Param("id") int id);
 
 }

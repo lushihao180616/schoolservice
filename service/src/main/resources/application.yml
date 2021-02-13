@@ -3,9 +3,9 @@ spring:
     encoding: UTF-8
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://118.31.123.130:3306/service?characterEncoding=utf-8&serverTimezone=UTC&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/service?characterEncoding=utf-8&serverTimezone=UTC&allowMultiQueries=true
     username: root
-    password: schoolsell_2020
+    password:
 server:
   servlet:
     context-path: /service

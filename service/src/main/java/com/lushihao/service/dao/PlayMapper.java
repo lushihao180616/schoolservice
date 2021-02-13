@@ -15,6 +15,6 @@ public interface PlayMapper {
 
     List<Play> selectLimit(@Param("id") int id);
 
-    List<Play> selectMyLimit(Play play);
+    List<Play> selectMyLimit(@Param("stuNum") String stuNum, @Param("id") int id);
 
 }

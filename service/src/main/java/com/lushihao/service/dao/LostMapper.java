@@ -15,6 +15,6 @@ public interface LostMapper {
 
     List<Lost> selectLimit(@Param("id") int id);
 
-    List<Lost> selectMyLimit(Lost lost);
+    List<Lost> selectMyLimit(@Param("stuNum") String stuNum, @Param("id") int id);
 
 }

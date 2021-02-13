@@ -15,6 +15,6 @@ public interface MarketMapper {
 
     List<Market> selectLimit(@Param("id") int id);
 
-    List<Market> selectMyLimit(Market market);
+    List<Market> selectMyLimit(@Param("stuNum") String stuNum, @Param("id") int id);
 
 }

@@ -111,9 +111,9 @@ public class PlayService {
      * @return
      */
     @Transactional
-    public List<Map> selectMyLimit(Play play) {
+    public List<Map> selectMyLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<Play> selectPlay = playMapper.selectMyLimit(play);
+        List<Play> selectPlay = playMapper.selectMyLimit(stuNum, id);
         for (Play playItem : selectPlay) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(playItem);
             if (StringUtils.isNotEmpty(playItem.getStuNum())) {
@@ -127,6 +127,19 @@ public class PlayService {
             Audio selectAudio = audioMapper.selectOne(audio);
             map.put("audio", selectAudio);
             map.put("game", PlayGameType.gameType.get(playItem.getType()));
+            Great great = new Great();
+            great.setStuNum(stuNum);
+            great.setType(ModelType.MODEL_PLAY);
+            great.setTypeId(playItem.getId());
+            Great selectGreat = greatMapper.selectOne(great);
+            if (selectGreat != null) {
+                map.put("clickGreat", true);
+            }
+            map.put("greatCount", greatMapper.selectCount(great));
+            Comment comment = new Comment();
+            comment.setType(ModelType.MODEL_PLAY);
+            comment.setTypeId(playItem.getId());
+            map.put("commentCount", commentMapper.selectCount(comment));
             result.add(map);
         }
         return result;

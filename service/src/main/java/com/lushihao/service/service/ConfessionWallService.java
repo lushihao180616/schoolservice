@@ -117,9 +117,9 @@ public class ConfessionWallService {
      * @return
      */
     @Transactional
-    public List<Map> selectMyLimit(ConfessionWall confessionWall) {
+    public List<Map> selectMyLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<ConfessionWall> selectConfession = confessionWallMapper.selectMyLimit(confessionWall);
+        List<ConfessionWall> selectConfession = confessionWallMapper.selectMyLimit(stuNum, id);
         for (ConfessionWall wallItem : selectConfession) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(wallItem);
             if (StringUtils.isNotEmpty(wallItem.getStuNum())) {
@@ -136,7 +136,7 @@ public class ConfessionWallService {
             }
             map.put("image", imageMapper.selectOne(image));
             Great great = new Great();
-            great.setStuNum(wallItem.getStuNum());
+            great.setStuNum(stuNum);
             great.setType(ModelType.MODEL_CONFESSIONWALL);
             great.setTypeId(wallItem.getId());
             Great selectGreat = greatMapper.selectOne(great);
@@ -144,6 +144,10 @@ public class ConfessionWallService {
                 map.put("clickGreat", true);
             }
             map.put("greatCount", greatMapper.selectCount(great));
+            Comment comment = new Comment();
+            comment.setType(ModelType.MODEL_CONFESSIONWALL);
+            comment.setTypeId(wallItem.getId());
+            map.put("commentCount", commentMapper.selectCount(comment));
             result.add(map);
         }
         return result;

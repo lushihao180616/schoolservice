@@ -76,9 +76,9 @@ public class LostService {
     }
 
     @Transactional
-    public List<Map> selectMyLimit(Lost lost) {
+    public List<Map> selectMyLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<Lost> selectPlay = lostMapper.selectMyLimit(lost);
+        List<Lost> selectPlay = lostMapper.selectMyLimit(stuNum, id);
         for (Lost lostItem : selectPlay) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(lostItem);
             if (StringUtils.isNotEmpty(lostItem.getStuNum())) {
@@ -86,6 +86,19 @@ public class LostService {
                 user.setStuNum(lostItem.getStuNum());
                 map.put("user", userMapper.selectOne(user));
             }
+            Great great = new Great();
+            great.setStuNum(stuNum);
+            great.setType(ModelType.MODEL_LOST);
+            great.setTypeId(lostItem.getId());
+            Great selectGreat = greatMapper.selectOne(great);
+            if (selectGreat != null) {
+                map.put("clickGreat", true);
+            }
+            map.put("greatCount", greatMapper.selectCount(great));
+            Comment comment = new Comment();
+            comment.setType(ModelType.MODEL_LOST);
+            comment.setTypeId(lostItem.getId());
+            map.put("commentCount", commentMapper.selectCount(comment));
             result.add(map);
         }
         return result;

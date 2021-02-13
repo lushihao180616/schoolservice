@@ -90,9 +90,9 @@ public class MarketService {
     }
 
     @Transactional
-    public List<Map> selectMyLimit(Market market) {
+    public List<Map> selectMyLimit(String stuNum, int id) {
         List<Map> result = new ArrayList<>();
-        List<Market> selectConfession = marketMapper.selectMyLimit(market);
+        List<Market> selectConfession = marketMapper.selectMyLimit(stuNum, id);
         for (Market marketItem : selectConfession) {
             Map<String, Object> map = (Map<String, Object>) BeanMapUtil.beanToMap(marketItem);
             if (StringUtils.isNotEmpty(marketItem.getStuNum())) {
@@ -104,6 +104,19 @@ public class MarketService {
             image.setType(ModelType.MODEL_MARKET);
             image.setTypeId(marketItem.getId());
             map.put("image", imageMapper.selectOne(image));
+            Great great = new Great();
+            great.setStuNum(stuNum);
+            great.setType(ModelType.MODEL_MARKET);
+            great.setTypeId(marketItem.getId());
+            Great selectGreat = greatMapper.selectOne(great);
+            if (selectGreat != null) {
+                map.put("clickGreat", true);
+            }
+            map.put("greatCount", greatMapper.selectCount(great));
+            Comment comment = new Comment();
+            comment.setType(ModelType.MODEL_MARKET);
+            comment.setTypeId(marketItem.getId());
+            map.put("commentCount", commentMapper.selectCount(comment));
             result.add(map);
         }
         return result;

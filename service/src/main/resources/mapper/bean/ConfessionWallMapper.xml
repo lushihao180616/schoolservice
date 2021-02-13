@@ -31,8 +31,12 @@
             `confessionwall`
         where
             `stuNum`=#{stuNum}
+        <if test="id != 0">
+        and
+            `id` &lt; #{id}
+        </if>
         order by
             `createTime` desc
-        limit 0,10
+        limit 0,5
     </select>
 </mapper>

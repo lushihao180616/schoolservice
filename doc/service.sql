@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 07/02/2021 22:52:49
+ Date: 13/02/2021 14:25:42
 */
 
 SET NAMES utf8mb4;
@@ -126,7 +126,7 @@ CREATE TABLE `comment`  (
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '评论内容',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of comment
@@ -135,6 +135,11 @@ INSERT INTO `comment` VALUES (1, '00', 1, '14020109109', 'ainidfafsdfsdfsdfsdfsd
 INSERT INTO `comment` VALUES (2, '00', 1, '14020109109', 'aini', '2021-02-07 21:24:49');
 INSERT INTO `comment` VALUES (5, '00', 1, '14020109109', '1111', '2021-02-07 22:41:14');
 INSERT INTO `comment` VALUES (6, '00', 1, '14020109109', '123456', '2021-02-07 22:47:36');
+INSERT INTO `comment` VALUES (7, '00', 1, '14020109109', '发送到发送到发送到发送到发士大夫撒发撒地方水电费水电费撒打发斯蒂芬', '2021-02-08 13:26:17');
+INSERT INTO `comment` VALUES (8, '00', 1, '14020109109', 'a', '2021-02-08 13:27:24');
+INSERT INTO `comment` VALUES (9, '01', 1, '14020109109', '123', '2021-02-08 15:14:42');
+INSERT INTO `comment` VALUES (10, '02', 1, '14020109109', '123', '2021-02-08 15:42:16');
+INSERT INTO `comment` VALUES (11, '03', 1, '14020109109', '123', '2021-02-08 16:09:52');
 
 -- ----------------------------
 -- Table structure for confessionwall
@@ -147,12 +152,17 @@ CREATE TABLE `confessionwall`  (
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '详情',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of confessionwall
 -- ----------------------------
 INSERT INTO `confessionwall` VALUES (1, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-01-13 10:30:00');
+INSERT INTO `confessionwall` VALUES (2, '14020109109', 'biaoti', 'xiangqingbiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaot', '2021-02-08 17:30:55');
+INSERT INTO `confessionwall` VALUES (3, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-02-08 17:30:56');
+INSERT INTO `confessionwall` VALUES (4, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-02-08 17:30:57');
+INSERT INTO `confessionwall` VALUES (5, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-02-08 17:30:58');
+INSERT INTO `confessionwall` VALUES (6, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-02-08 17:30:59');
 
 -- ----------------------------
 -- Table structure for dormitory
@@ -200,12 +210,20 @@ CREATE TABLE `great`  (
   `stuNum` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '点赞人',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of great
 -- ----------------------------
-INSERT INTO `great` VALUES (1, '00', 1, '14020109109', '2021-02-07 21:24:48');
+INSERT INTO `great` VALUES (3, '00', 0, '14020109109', '2021-02-08 13:37:07');
+INSERT INTO `great` VALUES (7, '03', 0, '14020109109', '2021-02-08 14:14:16');
+INSERT INTO `great` VALUES (15, '00', 1, '14020109109', '2021-02-08 17:02:06');
+INSERT INTO `great` VALUES (16, '02', 0, '14020109109', '2021-02-08 21:43:15');
+INSERT INTO `great` VALUES (18, '03', 1, '14020109109', '2021-02-08 21:45:01');
+INSERT INTO `great` VALUES (20, '02', 1, '14020109109', '2021-02-11 12:40:15');
+INSERT INTO `great` VALUES (21, '03', 2, '14020109109', '2021-02-11 13:29:58');
+INSERT INTO `great` VALUES (22, '02', 2, '14020109109', '2021-02-11 13:33:23');
+INSERT INTO `great` VALUES (23, '02', 3, '14020109109', '2021-02-11 13:33:24');
 
 -- ----------------------------
 -- Table structure for image
@@ -238,12 +256,14 @@ CREATE TABLE `lost`  (
   `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '详情',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of lost
 -- ----------------------------
-INSERT INTO `lost` VALUES (1, '14020109109', '2021-01-14 18:00:00', '图书馆二楼', '图书馆二楼捡了一个钥匙', '2021-01-15 14:20:00');
+INSERT INTO `lost` VALUES (1, '14020109109', '2021-01-14 18:00:00', '图书馆二楼', '图书馆二楼捡了一个钥匙1', '2021-01-15 14:20:00');
+INSERT INTO `lost` VALUES (2, '14020109109', '2021-01-14 18:00:00', '图书馆二楼', '图书馆二楼捡了一个钥匙2', '2021-01-15 14:21:00');
+INSERT INTO `lost` VALUES (3, '14020109109', '2021-01-14 18:00:00', '图书馆二楼', '图书馆二楼捡了一个钥匙3', '2021-01-15 14:22:00');
 
 -- ----------------------------
 -- Table structure for market
@@ -256,12 +276,14 @@ CREATE TABLE `market`  (
   `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '详情',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of market
 -- ----------------------------
 INSERT INTO `market` VALUES (1, '14020109109', '方便面', '超便宜的方便面', '2021-01-15 15:37:00');
+INSERT INTO `market` VALUES (2, '14020109109', '亲嘴烧', '超辣亲嘴烧', '2021-02-10 10:17:30');
+INSERT INTO `market` VALUES (3, '14020109109', '果冻', '超大亲亲果冻', '2021-02-10 10:17:32');
 
 -- ----------------------------
 -- Table structure for message
