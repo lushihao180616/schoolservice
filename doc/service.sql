@@ -11,7 +11,7 @@
  Target Server Version : 50626
  File Encoding         : 65001
 
- Date: 13/02/2021 14:25:42
+ Date: 13/02/2021 19:50:33
 */
 
 SET NAMES utf8mb4;
@@ -105,7 +105,7 @@ CREATE TABLE `audio`  (
   `type` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '类型',
   `typeId` int(11) NULL DEFAULT NULL COMMENT '类型的主键',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of audio
@@ -113,6 +113,7 @@ CREATE TABLE `audio`  (
 INSERT INTO `audio` VALUES (1, 'https://sharefs.yun.kugou.com/202101211103/5585b66f54e52bc79e927f10b9f3d921/KGTX/CLTX001/3dce58e3635e24f3139114c5e0519def.mp3', '03', 1);
 INSERT INTO `audio` VALUES (2, 'https://sharefs.yun.kugou.com/202101231335/42826fe559b99e400a608f77cc165586/KGTX/CLTX001/9c29ccf742c1a8f8a8171dd3305b428b.mp3', '03', 2);
 INSERT INTO `audio` VALUES (3, 'https://sharefs.yun.kugou.com/202101231348/d23a72cf117295ef3f7803a9cf1f5534/G227/M05/04/08/Iw4DAF9EtSyAHni8AEKYmb_KItw819.mp3', '03', 3);
+INSERT INTO `audio` VALUES (10, 'D:/images/upload/14020109109_03_10.mp3', '03', 10);
 
 -- ----------------------------
 -- Table structure for comment
@@ -192,12 +193,14 @@ CREATE TABLE `express`  (
   `count` int(2) NULL DEFAULT NULL COMMENT '数量',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of express
 -- ----------------------------
 INSERT INTO `express` VALUES (1, '14020109109', '莹华里12号楼', 2, '2021-01-23 12:23:42');
+INSERT INTO `express` VALUES (2, '14020109109', '莹华里停车场地下', 2, '2021-01-23 12:23:44');
+INSERT INTO `express` VALUES (3, '14020109109', '鑫茂军民园1号楼B座', 1, '2021-01-23 12:23:49');
 
 -- ----------------------------
 -- Table structure for great
@@ -297,13 +300,14 @@ CREATE TABLE `message`  (
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   `readFlag` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'N' COMMENT '读取标识（已读：Y  未读：N）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of message
 -- ----------------------------
 INSERT INTO `message` VALUES (1, '14020109109', '00', '罗程为你的告白墙点赞啦', '2021-01-19 14:57:12', 'N');
-INSERT INTO `message` VALUES (2, '14020109109', '01', '您的商品有了新的评论信息', '2021-01-19 14:57:12', 'N');
+INSERT INTO `message` VALUES (2, '14020109109', '01', '您的商品有了新的评论信息', '2021-01-19 14:57:13', 'N');
+INSERT INTO `message` VALUES (3, '14020109109', '02', '您的商品有了新的评论信息', '2021-01-19 14:57:16', 'N');
 
 -- ----------------------------
 -- Table structure for play
@@ -316,7 +320,7 @@ CREATE TABLE `play`  (
   `type` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of play
@@ -324,6 +328,7 @@ CREATE TABLE `play`  (
 INSERT INTO `play` VALUES (1, '14020109109', '请和我一起打游戏吧！', '0', '2021-01-13 20:32:10');
 INSERT INTO `play` VALUES (2, '14020109110', '请和我一起打游戏吧！', '1', '2021-01-13 20:32:10');
 INSERT INTO `play` VALUES (3, '14020109109', '请和我一起打游戏吧！', '0', '2021-01-13 20:32:10');
+INSERT INTO `play` VALUES (10, '14020109109', '1111', '0', '2021-02-13 19:44:25');
 
 -- ----------------------------
 -- Table structure for user
