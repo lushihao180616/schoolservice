@@ -9,13 +9,13 @@ import com.lushihao.service.common.ModelType;
 import com.lushihao.service.dao.*;
 import com.lushihao.service.util.BeanMapUtil;
 import com.lushihao.service.util.DateUtil;
+import com.lushihao.service.util.FtpUtil;
 import com.lushihao.service.util.ImageUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -63,8 +63,7 @@ public class ConfessionWallService {
         Image selectImage = imageMapper.selectOne(image);
         imageMapper.deleteOne(image);
         if (selectImage != null && selectImage.getSrc() != null) {
-            File file = new File(selectImage.getSrc());
-            file.delete();
+            new FtpUtil().ftpDelete(selectImage.getSrc().substring(selectImage.getSrc().lastIndexOf("/") + 1), "image");
         }
         return confessionWallMapper.deleteOne(confessionWall);
     }

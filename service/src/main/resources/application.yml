@@ -20,4 +20,3 @@ server:
 mybatis:
   mapper-locations: classpath:mapper/**/*Mapper.xml
 
-filePath: D:/images/upload/
