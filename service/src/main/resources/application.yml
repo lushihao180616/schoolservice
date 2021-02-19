@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/service?characterEncoding=utf-8&serverTimezone=UTC&allowMultiQueries=true
     username: root
-    password:
+    password: schoolsell_2020
 server:
   servlet:
     context-path: /service
@@ -16,6 +16,14 @@ server:
   tomcat:
     uri-encoding: UTF-8
   port: 8200
+  ssl:
+    # SSL 证书路径，classpath 必不可少
+    key-store: classpath:4754508.jks
+    # SSL 证书密码
+    key-store-password: V90HOvS6
+    # 证书类型
+    key-store-type: JKS
+    enabled: true
 
 mybatis:
   mapper-locations: classpath:mapper/**/*Mapper.xml
