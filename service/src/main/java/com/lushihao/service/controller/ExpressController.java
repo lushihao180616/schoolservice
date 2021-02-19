@@ -46,7 +46,7 @@ public class ExpressController {
     @ResponseBody
     public Result deleteOne(@RequestBody Express express) {
         if (expressService.deleteOne(express) > 0) {
-            return Result.success("成功", "成功");
+            return Result.success(express.getId(), "成功");
         } else {
             return Result.fail("失败", "失败");
         }

@@ -50,7 +50,7 @@ public class ConfessionWallController {
     @ResponseBody
     public Result deleteOne(@RequestBody ConfessionWall confessionWall) {
         if (confessionWallService.deleteOne(confessionWall) > 0) {
-            return Result.success("成功", "成功");
+            return Result.success(confessionWall.getId(), "成功");
         } else {
             return Result.fail("失败", "失败");
         }

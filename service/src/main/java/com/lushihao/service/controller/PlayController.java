@@ -47,7 +47,7 @@ public class PlayController {
     @ResponseBody
     public Result deleteOne(@RequestBody Play play) {
         if (playService.deleteOne(play) > 0) {
-            return Result.success("成功", "成功");
+            return Result.success(play.getId(), "成功");
         } else {
             return Result.fail("失败", "失败");
         }

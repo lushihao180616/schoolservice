@@ -47,7 +47,7 @@ public class MarketController {
     @ResponseBody
     public Result deleteOne(@RequestBody Market market) {
         if (marketService.deleteOne(market) > 0) {
-            return Result.success("成功", "成功");
+            return Result.success(market.getId(), "成功");
         } else {
             return Result.fail("失败", "失败");
         }

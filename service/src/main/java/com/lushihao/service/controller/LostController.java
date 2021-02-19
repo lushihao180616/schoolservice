@@ -47,7 +47,7 @@ public class LostController {
     @ResponseBody
     public Result deleteOne(@RequestBody Lost lost) {
         if (lostService.deleteOne(lost) > 0) {
-            return Result.success("成功", "成功");
+            return Result.success(lost.getId(), "成功");
         } else {
             return Result.fail("失败", "失败");
         }
