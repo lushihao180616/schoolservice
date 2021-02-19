@@ -42,7 +42,7 @@ public class FileController {
     /**
      * 新浪云图片地址
      */
-    private String fileSrc = "http://sinacloud.net/schoolservice/";
+    private String fileSrc = "https://sinacloud.net/schoolservice/";
 
     private static final String IMAGE_TYPE = "image";
     private static final String AUDIO_TYPE = "audio";
