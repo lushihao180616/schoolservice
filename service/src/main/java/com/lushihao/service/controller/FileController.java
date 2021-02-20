@@ -1,5 +1,6 @@
 package com.lushihao.service.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lushihao.service.bean.ConfessionWall;
 import com.lushihao.service.bean.Lost;
 import com.lushihao.service.bean.Market;
@@ -10,6 +11,7 @@ import com.lushihao.service.common.ModelType;
 import com.lushihao.service.common.Result;
 import com.lushihao.service.service.*;
 import com.lushihao.service.util.FtpUtil;
+import com.lushihao.service.util.HttpUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("file")
@@ -92,20 +96,33 @@ public class FileController {
             if (!new FtpUtil().ftpUpload(audiofile, fileName, AUDIO_TYPE)) {
                 return Result.fail("失败", "失败");
             }
-
+            String fileUrl = fileSrc + AUDIO_TYPE + "/" + fileName;
             Audio audio = new Audio();
-            audio.setSrc(fileSrc + AUDIO_TYPE + "/" + fileName);
+            audio.setSrc(fileUrl);
             audio.setType(type);
             audio.setTypeId(Integer.valueOf(typeId));
             if (audioService.insertOne(audio) == 0) {
                 delete(type, typeId);
                 return Result.fail("失败", "失败");
             }
+            Map<String, String> param = new HashMap<>();
+            param.put("media_url", fileUrl);
+            param.put("media_type", "1");
+            String checkBack = HttpUtil.sendPost("https://api.weixin.qq.com/wxa/media_check_async?access_token=" + getAccessToken(), param);
             return Result.success("成功", "成功");
         } catch (Exception e) {
             delete(type, typeId);
             return Result.fail("失败", "失败");
         }
+    }
+
+    private static synchronized String getAccessToken() {
+        Map<String, String> param = new HashMap<>();
+        param.put("grant_type", "client_credential");
+        param.put("appid", "wx14f14196c4f73b26");
+        param.put("secret", "cc69cb2f53ed84c7dcf3cfcb1a075295");
+        String url = "https://api.weixin.qq.com/cgi-bin/token";
+        return JSONObject.parseObject(HttpUtil.sendGet(url, param)).getString("access_token");
     }
 
     /**
