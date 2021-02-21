@@ -105,10 +105,15 @@ public class FileController {
                 delete(type, typeId);
                 return Result.fail("失败", "失败");
             }
-            Map<String, String> param = new HashMap<>();
+            Map<String, Object> param = new HashMap<>();
             param.put("media_url", fileUrl);
-            param.put("media_type", "1");
+            param.put("media_type", 1);
             String checkBack = HttpUtil.sendPost("https://api.weixin.qq.com/wxa/media_check_async?access_token=" + getAccessToken(), param);
+            JSONObject checkBackObject = JSONObject.parseObject(checkBack);
+            if(checkBackObject.getInteger("errcode") != 0){
+                delete(type, typeId);
+                return Result.fail("失败", "失败");
+            }
             return Result.success("成功", "成功");
         } catch (Exception e) {
             delete(type, typeId);
