@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost_3306
+ Source Server         : 118.31.123.130_3306
  Source Server Type    : MySQL
- Source Server Version : 50626
- Source Host           : localhost:3306
+ Source Server Version : 50722
+ Source Host           : 118.31.123.130:3306
  Source Schema         : service
 
  Target Server Type    : MySQL
- Target Server Version : 50626
+ Target Server Version : 50722
  File Encoding         : 65001
 
- Date: 17/02/2021 23:09:35
+ Date: 21/02/2021 22:09:57
 */
 
 SET NAMES utf8mb4;
@@ -105,17 +105,7 @@ CREATE TABLE `audio`  (
   `type` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '类型',
   `typeId` int(11) NULL DEFAULT NULL COMMENT '类型的主键',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of audio
--- ----------------------------
-INSERT INTO `audio` VALUES (1, 'https://sharefs.yun.kugou.com/202101211103/5585b66f54e52bc79e927f10b9f3d921/KGTX/CLTX001/3dce58e3635e24f3139114c5e0519def.mp3', '03', 1);
-INSERT INTO `audio` VALUES (2, 'https://sharefs.yun.kugou.com/202101231335/42826fe559b99e400a608f77cc165586/KGTX/CLTX001/9c29ccf742c1a8f8a8171dd3305b428b.mp3', '03', 2);
-INSERT INTO `audio` VALUES (3, 'https://sharefs.yun.kugou.com/202101231348/d23a72cf117295ef3f7803a9cf1f5534/G227/M05/04/08/Iw4DAF9EtSyAHni8AEKYmb_KItw819.mp3', '03', 3);
-INSERT INTO `audio` VALUES (10, 'D:/images/upload/14020109109_03_10.mp3', '03', 10);
-INSERT INTO `audio` VALUES (11, 'D:/images/upload/14020109109_03_11.mp3', '03', 11);
-INSERT INTO `audio` VALUES (12, 'http://sinacloud.net/schoolservice/audio/14020109109_03_4.mp3', '03', 4);
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for comment
@@ -129,7 +119,7 @@ CREATE TABLE `comment`  (
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '评论内容',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of comment
@@ -142,9 +132,21 @@ INSERT INTO `comment` VALUES (7, '00', 1, '14020109109', '发送到发送到发�
 INSERT INTO `comment` VALUES (8, '00', 1, '14020109109', 'a', '2021-02-08 13:27:24');
 INSERT INTO `comment` VALUES (9, '01', 1, '14020109109', '123', '2021-02-08 15:14:42');
 INSERT INTO `comment` VALUES (10, '02', 1, '14020109109', '123', '2021-02-08 15:42:16');
-INSERT INTO `comment` VALUES (11, '03', 1, '14020109109', '123', '2021-02-08 16:09:52');
 INSERT INTO `comment` VALUES (12, '00', 6, '14020109109', '111', '2021-02-16 22:38:12');
 INSERT INTO `comment` VALUES (13, '00', 6, '14020109109', '123', '2021-02-17 02:47:43');
+INSERT INTO `comment` VALUES (14, '01', 2, '14020109109', '相声里面高清监控的偷拍隐蔽是很难的，单纯厂家就已经在线下注够难竞猜投注了', '2021-02-19 17:02:32');
+INSERT INTO `comment` VALUES (15, '00', 2, '14020109109', '111', '2021-02-19 17:05:29');
+INSERT INTO `comment` VALUES (16, '00', 6, '14020109109', '333', '2021-02-19 17:05:40');
+INSERT INTO `comment` VALUES (17, '02', 2, '14020109109', '542', '2021-02-19 21:12:26');
+INSERT INTO `comment` VALUES (18, '00', 9, '14020109109', '123', '2021-02-19 23:02:39');
+INSERT INTO `comment` VALUES (19, '00', 9, '14020109109', '456', '2021-02-19 23:02:43');
+INSERT INTO `comment` VALUES (20, '00', 9, '14020109109', '232', '2021-02-19 23:14:59');
+INSERT INTO `comment` VALUES (21, '00', 9, '14020109109', '4', '2021-02-19 23:25:56');
+INSERT INTO `comment` VALUES (22, '00', 6, '14020109109', '圣人做庄警儒教，浏览器打开威尼斯警连五肖', '2021-02-20 02:12:09');
+INSERT INTO `comment` VALUES (23, '00', 9, '14020109109', '特3456书yuuo莞6543李zxcz蒜7782法fgnv级 完2347全dfji试3726测asad感3847知qwez到', '2021-02-20 10:22:33');
+INSERT INTO `comment` VALUES (24, '00', 9, '14020109109', '特3456书yuuo莞6543李zxcz蒜7782法fgnv级 完2347全dfji试3726测asad感3847知qwez到', '2021-02-20 10:24:12');
+INSERT INTO `comment` VALUES (25, '00', 9, '14020109109', '特3456书yuuo莞6543李zxcz蒜7782法fgnv级 完2347全dfji试3726测asad感3847知qwez到', '2021-02-20 10:33:51');
+INSERT INTO `comment` VALUES (26, '00', 13, '14020109109', '洪城一块学你习的政策，文武习才是真正的两面人管6月4日黎明', '2021-02-20 15:27:14');
 
 -- ----------------------------
 -- Table structure for confessionwall
@@ -157,17 +159,19 @@ CREATE TABLE `confessionwall`  (
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '详情',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of confessionwall
 -- ----------------------------
 INSERT INTO `confessionwall` VALUES (1, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-01-13 10:30:00');
-INSERT INTO `confessionwall` VALUES (2, '14020109109', 'biaoti', 'xiangqingbiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaotibiaot', '2021-02-08 17:30:55');
 INSERT INTO `confessionwall` VALUES (3, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-02-08 17:30:56');
 INSERT INTO `confessionwall` VALUES (4, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-02-08 17:30:57');
 INSERT INTO `confessionwall` VALUES (5, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-02-08 17:30:58');
 INSERT INTO `confessionwall` VALUES (6, '14020109109', '表白张三', '背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看背影好看', '2021-02-08 17:30:59');
+INSERT INTO `confessionwall` VALUES (8, '14020109109', '1', '2', '2021-02-19 22:21:03');
+INSERT INTO `confessionwall` VALUES (12, '14020109109', '1', '2', '2021-02-20 14:28:53');
+INSERT INTO `confessionwall` VALUES (13, '14020109109', '3', '4', '2021-02-20 14:29:31');
 
 -- ----------------------------
 -- Table structure for dormitory
@@ -217,18 +221,19 @@ CREATE TABLE `great`  (
   `stuNum` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '点赞人',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of great
 -- ----------------------------
-INSERT INTO `great` VALUES (7, '03', 0, '14020109109', '2021-02-08 14:14:16');
-INSERT INTO `great` VALUES (21, '03', 2, '14020109109', '2021-02-11 13:29:58');
 INSERT INTO `great` VALUES (24, '00', 6, '14020109109', '2021-02-16 22:58:09');
 INSERT INTO `great` VALUES (28, '01', 0, '14020109109', '2021-02-16 23:13:34');
 INSERT INTO `great` VALUES (37, '00', 1, '14020109109', '2021-02-17 01:32:31');
 INSERT INTO `great` VALUES (38, '00', 3, '14020109109', '2021-02-17 01:32:46');
 INSERT INTO `great` VALUES (39, '00', 4, '14020109109', '2021-02-17 01:32:47');
+INSERT INTO `great` VALUES (40, '02', 2, '14020109109', '2021-02-19 21:12:08');
+INSERT INTO `great` VALUES (41, '02', 3, '14020109109', '2021-02-19 21:12:31');
+INSERT INTO `great` VALUES (42, '01', 4, '14020109109', '2021-02-19 21:18:27');
 
 -- ----------------------------
 -- Table structure for image
@@ -241,14 +246,16 @@ CREATE TABLE `image`  (
   `typeId` int(11) NULL DEFAULT NULL COMMENT '图片对应的类型id',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `image_type_typeId_index`(`type`, `typeId`) USING BTREE COMMENT '索引 类型 类型id'
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of image
 -- ----------------------------
 INSERT INTO `image` VALUES (1, 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3338784601,903272157&fm=26&gp=0.jpg', '00', 1);
 INSERT INTO `image` VALUES (2, 'https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4126584210,676776784&fm=26&gp=0.jpg', '01', 1);
-INSERT INTO `image` VALUES (3, 'D:/images/upload/14020109109_00_7.jpg', '00', 7);
+INSERT INTO `image` VALUES (7, 'https://sinacloud.net/schoolservice/image/14020109109_00_8.jpg', '00', 8);
+INSERT INTO `image` VALUES (9, 'https://sinacloud.net/schoolservice/image/14020109109_00_12.jpg', '00', 12);
+INSERT INTO `image` VALUES (10, 'https://sinacloud.net/schoolservice/image/14020109109_00_13.jpg', '00', 13);
 
 -- ----------------------------
 -- Table structure for lost
@@ -323,15 +330,7 @@ CREATE TABLE `play`  (
   `type` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏',
   `createTime` varchar(19) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of play
--- ----------------------------
-INSERT INTO `play` VALUES (1, '14020109109', '请和我一起打游戏吧！', '0', '2021-01-13 20:32:10');
-INSERT INTO `play` VALUES (2, '14020109110', '请和我一起打游戏吧！', '1', '2021-01-13 20:32:10');
-INSERT INTO `play` VALUES (3, '14020109109', '请和我一起打游戏吧！', '0', '2021-01-13 20:32:10');
-INSERT INTO `play` VALUES (4, '14020109109', '111', '0', '2021-02-16 22:22:51');
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for user
@@ -354,8 +353,9 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('14020109109', '卢世豪', '123', '大四', '14020109', '机械设计制造及其自动化', 0, '2', NULL, 2);
+INSERT INTO `user` VALUES ('14020109109', '卢世豪', '123', '大四', '14020109', '机械设计制造及其自动化', 0, '2', '', 2);
 INSERT INTO `user` VALUES ('14020109110', '罗程', '14020109110', '大三', '14020109', '计算机工程学院', 1, '0', 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3609671807,461735196&fm=26&gp=0.jpg', 2);
+INSERT INTO `user` VALUES ('2', '测试', 'cs123456', '大一', '2', '测试', 0, '0', '', 1);
 
 -- ----------------------------
 -- Table structure for video
