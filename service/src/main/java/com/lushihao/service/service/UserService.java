@@ -25,9 +25,8 @@ public class UserService {
     public User checkLogin(User user) {
         User selectUser = userMapper.selectOne(user);
         if (selectUser.getPwd().equals(user.getPwd())) {
-            if(userMapper.updateAvatar(user) > 0){
-                selectUser.setAvatarUrl(user.getAvatarUrl());
-            }
+            userMapper.updateAvatar(user);
+            selectUser.setAvatarUrl(user.getAvatarUrl());
             return selectUser;
         } else {
             return null;
